@@ -1,0 +1,658 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!doctype html&gt;</p>
+<p class="p1">&lt;html lang="en" class="h-full"&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;IELTS Speaking Self-Study&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.tailwindcss.com/3.4.17"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="/_sdk/element_sdk.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script src="/_sdk/data_sdk.js"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;amp;family=Fraunces:wght@600;700&amp;amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1">html,body{margin:0;padding:0;height:100%;font-family:'DM Sans',sans-serif}</p>
+<p class="p1">*{box-sizing:border-box}</p>
+<p class="p1">.font-display{font-family:'Fraunces',serif}</p>
+<p class="p1">.tab-btn{transition:all .25s ease}</p>
+<p class="p1">.tab-btn.active{background:var(--c-primary);color:#fff;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15)}</p>
+<p class="p1">.card{background:var(--c-surface);border-radius:16px;padding:1.25rem;margin-bottom:1rem;border:1px solid rgba(0,0,0,.06);transition:box-shadow .2s}</p>
+<p class="p1">.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}</p>
+<p class="p1">.progress-bar{height:10px;border-radius:99px;background:#e5e7eb;overflow:hidden}</p>
+<p class="p1">.progress-fill{height:100%;border-radius:99px;transition:width .6s ease}</p>
+<p class="p1">.fade-in{animation:fadeIn .35s ease}</p>
+<p class="p1">@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}</p>
+<p class="p1">.stress-high{color:var(--c-primary);font-weight:700;font-size:1.15em}</p>
+<p class="p1">.btn-primary{background:var(--c-primary);color:#fff;border:none;border-radius:12px;padding:.6rem 1.2rem;cursor:pointer;font-weight:600;transition:all .2s}</p>
+<p class="p1">.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}</p>
+<p class="p1">.btn-secondary{background:var(--c-secondary);color:var(--c-text);border:none;border-radius:12px;padding:.6rem 1.2rem;cursor:pointer;font-weight:500;transition:all .2s}</p>
+<p class="p1">.btn-secondary:hover{filter:brightness(.95)}</p>
+<p class="p1">.quiz-option{border:2px solid #e5e7eb;border-radius:12px;padding:.75rem 1rem;cursor:pointer;transition:all .2s;background:#fff}</p>
+<p class="p1">.quiz-option:hover{border-color:var(--c-primary);background:rgba(99,102,241,.04)}</p>
+<p class="p1">.quiz-option.correct{border-color:#22c55e;background:#f0fdf4}</p>
+<p class="p1">.quiz-option.wrong{border-color:#ef4444;background:#fef2f2}</p>
+<p class="p1">.section-hidden{display:none}</p>
+<p class="p1">.toast{position:fixed;top:1rem;right:1rem;padding:.75rem 1.25rem;border-radius:12px;color:#fff;font-weight:600;z-index:999;animation:slideIn .3s ease}</p>
+<p class="p1">@keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}</p>
+<p class="p1">:root{--c-bg:#faf7f2;--c-surface:#ffffff;--c-text:#1e1b18;--c-primary:#6366f1;--c-secondary:#e8e5df}</p>
+<p class="p1">.hint-content{max-height:0;overflow:hidden;transition:max-height .35s ease}</p>
+<p class="p1">.hint-content.open{max-height:600px}</p>
+<p class="p1">textarea:focus,input:focus{outline:2px solid var(--c-primary);outline-offset:1px}</p>
+<p class="p1">.recording-pulse{animation:pulse 1.5s infinite}</p>
+<p class="p1">@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 12px rgba(239,68,68,0)}}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;body { box-sizing: border-box; }&lt;/style&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;/head&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;body class="h-full" style="background:var(--c-bg);color:var(--c-text)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div id="app" class="h-full w-full overflow-auto"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>&lt;!-- Header --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>&lt;header class="sticky top-0 z-50 backdrop-blur-md" style="background:rgba(250,247,242,.9);border-bottom:1px solid rgba(0,0,0,.06)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">     </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1 id="appTitle" class="font-display text-xl font-bold" style="color:var(--c-primary)"&gt;IELTS Speaking Self-Study&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p id="appSubtitle" class="text-xs mt-0.5 opacity-60" data-en="Band 5.0 – 6.0 | Shopping Topic" data-vn="Band 5.0 – 6.0 | Chủ đề Mua sắm"&gt;Band 5.0 – 6.0 | Shopping Topic&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">     </span>&lt;/div&gt;&lt;button id="langToggle" onclick="toggleLang()" class="btn-secondary text-sm flex items-center gap-1.5"&gt; &lt;i data-lucide="globe" style="width:16px;height:16px"&gt;&lt;/i&gt; &lt;span id="langLabel"&gt;VN&lt;/span&gt; &lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;&lt;!-- Tabs --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="max-w-3xl mx-auto px-4 pb-2 flex gap-2 overflow-x-auto" id="tabBar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">     </span>&lt;button class="tab-btn active text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(0)" data-en="Questions" data-vn="Câu hỏi"&gt;Questions&lt;/button&gt; &lt;button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(1)" data-en="Vocabulary" data-vn="Từ vựng"&gt;Vocabulary&lt;/button&gt; &lt;button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(2)" data-en="Grammar" data-vn="Ngữ pháp"&gt;Grammar&lt;/button&gt; &lt;button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(3)" data-en="Pronunciation" data-vn="Phát âm"&gt;Pronunciation&lt;/button&gt; &lt;button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(4)" data-en="Practice" data-vn="Luyện tập"&gt;Practice&lt;/button&gt; &lt;button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(5)" data-en="Progress" data-vn="Tiến độ"&gt;Progress&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>&lt;/header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>&lt;main class="max-w-3xl mx-auto px-4 py-6 pb-24"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- ========== SECTION 0: QUESTIONS ========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="sec0" class="fade-in"&gt;&lt;/section&gt;&lt;!-- ========== SECTION 1: VOCABULARY ========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="sec1" class="section-hidden fade-in"&gt;&lt;/section&gt;&lt;!-- ========== SECTION 2: GRAMMAR ========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="sec2" class="section-hidden fade-in"&gt;&lt;/section&gt;&lt;!-- ========== SECTION 3: PRONUNCIATION ========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="sec3" class="section-hidden fade-in"&gt;&lt;/section&gt;&lt;!-- ========== SECTION 4: PRACTICE ========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="sec4" class="section-hidden fade-in"&gt;&lt;/section&gt;&lt;!-- ========== SECTION 5: PROGRESS ========== --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="sec5" class="section-hidden fade-in"&gt;&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">   </span>&lt;/main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1">// ===== STATE =====</p>
+<p class="p1">let lang = 'en';</p>
+<p class="p1">let currentTab = 0;</p>
+<p class="p1">let progressData = null; // from Data SDK</p>
+<p class="p1">let localScores = { vocab_score:0, grammar_score:0, pronunciation_done:0, practice_count:0 };</p>
+<p class="p2"><br></p>
+<p class="p1">const defaultConfig = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>app_title: 'IELTS Speaking Self-Study',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>subtitle: 'Band 5.0 – 6.0 | Shopping Topic',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background_color: '#faf7f2',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>surface_color: '#ffffff',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text_color: '#1e1b18',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>primary_color: '#6366f1',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>secondary_color: '#e8e5df',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font_family: 'DM Sans',</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font_size: 16</p>
+<p class="p1">};</p>
+<p class="p2"><br></p>
+<p class="p1">function applyColors(c) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.documentElement.style.setProperty('--c-bg', c.background_color||defaultConfig.background_color);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.documentElement.style.setProperty('--c-surface', c.surface_color||defaultConfig.surface_color);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.documentElement.style.setProperty('--c-text', c.text_color||defaultConfig.text_color);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.documentElement.style.setProperty('--c-primary', c.primary_color||defaultConfig.primary_color);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.documentElement.style.setProperty('--c-secondary', c.secondary_color||defaultConfig.secondary_color);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.body.style.background = c.background_color||defaultConfig.background_color;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.body.style.color = c.text_color||defaultConfig.text_color;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function applyFonts(c) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const ff = c.font_family||defaultConfig.font_family;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const fs = c.font_size||defaultConfig.font_size;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.body.style.fontFamily = `${ff}, DM Sans, sans-serif`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.body.style.fontSize = fs+'px';</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== ELEMENT SDK =====</p>
+<p class="p1">window.elementSdk.init({</p>
+<p class="p1"><span class="Apple-converted-space">  </span>defaultConfig,</p>
+<p class="p1"><span class="Apple-converted-space">  </span>onConfigChange: async(config)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>applyColors(config);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>applyFonts(config);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const t = document.getElementById('appTitle');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(t) t.textContent = config.app_title||defaultConfig.app_title;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const s = document.getElementById('appSubtitle');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(s) s.textContent = config.subtitle||defaultConfig.subtitle;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>mapToCapabilities:(config)=&gt;({</p>
+<p class="p1"><span class="Apple-converted-space">    </span>recolorables:[</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{get:()=&gt;config.background_color||defaultConfig.background_color, set:v=&gt;{config.background_color=v;window.elementSdk.setConfig({background_color:v})}},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{get:()=&gt;config.surface_color||defaultConfig.surface_color, set:v=&gt;{config.surface_color=v;window.elementSdk.setConfig({surface_color:v})}},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{get:()=&gt;config.text_color||defaultConfig.text_color, set:v=&gt;{config.text_color=v;window.elementSdk.setConfig({text_color:v})}},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{get:()=&gt;config.primary_color||defaultConfig.primary_color, set:v=&gt;{config.primary_color=v;window.elementSdk.setConfig({primary_color:v})}},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{get:()=&gt;config.secondary_color||defaultConfig.secondary_color, set:v=&gt;{config.secondary_color=v;window.elementSdk.setConfig({secondary_color:v})}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>borderables:[],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>fontEditable:{get:()=&gt;config.font_family||defaultConfig.font_family, set:v=&gt;{config.font_family=v;window.elementSdk.setConfig({font_family:v})}},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>fontSizeable:{get:()=&gt;config.font_size||defaultConfig.font_size, set:v=&gt;{config.font_size=v;window.elementSdk.setConfig({font_size:v})}}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}),</p>
+<p class="p1"><span class="Apple-converted-space">  </span>mapToEditPanelValues:(config)=&gt;new Map([</p>
+<p class="p1"><span class="Apple-converted-space">    </span>['app_title', config.app_title||defaultConfig.app_title],</p>
+<p class="p1"><span class="Apple-converted-space">    </span>['subtitle', config.subtitle||defaultConfig.subtitle]</p>
+<p class="p1"><span class="Apple-converted-space">  </span>])</p>
+<p class="p1">});</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== DATA SDK =====</p>
+<p class="p1">const dataHandler = {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>onDataChanged(data) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const rec = data.find(d=&gt;d.type==='progress');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(rec) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>progressData = rec;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localScores.vocab_score = rec.vocab_score||0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localScores.grammar_score = rec.grammar_score||0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localScores.pronunciation_done = rec.pronunciation_done||0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>localScores.practice_count = rec.practice_count||0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(currentTab===5) renderProgress();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">};</p>
+<p class="p1">(async()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const r = await window.dataSdk.init(dataHandler);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!r.isOk) console.error('Data SDK init failed');</p>
+<p class="p1">})();</p>
+<p class="p2"><br></p>
+<p class="p1">async function saveProgress() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const obj = {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>type:'progress',</p>
+<p class="p1"><span class="Apple-converted-space">    </span>vocab_score: localScores.vocab_score,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>grammar_score: localScores.grammar_score,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>pronunciation_done: localScores.pronunciation_done,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>practice_count: localScores.practice_count,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>last_updated: new Date().toISOString()</p>
+<p class="p1"><span class="Apple-converted-space">  </span>};</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(progressData) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const updated = {...progressData,...obj};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const r = await window.dataSdk.update(updated);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(!r.isOk) console.error('Update failed');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const r = await window.dataSdk.create(obj);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(!r.isOk) console.error('Create failed');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== LANGUAGE =====</p>
+<p class="p1">function toggleLang(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>lang = lang==='en'?'vn':'en';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('langLabel').textContent = lang==='en'?'VN':'EN';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('[data-en]').forEach(el=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>el.textContent = el.getAttribute('data-'+lang);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderCurrentSection();</p>
+<p class="p1">}</p>
+<p class="p1">function t(en,vn){ return lang==='en'?en:vn; }</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== TABS =====</p>
+<p class="p1">function switchTab(i){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.querySelectorAll('#tabBar .tab-btn').forEach((b,idx)=&gt;b.classList.toggle('active',idx===i));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>for(let s=0;s&lt;6;s++){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('sec'+s).classList.toggle('section-hidden',s!==i);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>currentTab=i;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderCurrentSection();</p>
+<p class="p1">}</p>
+<p class="p1">function renderCurrentSection(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>[renderQuestions,renderVocab,renderGrammar,renderPronunciation,renderPractice,renderProgress][currentTab]();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== TTS =====</p>
+<p class="p1">function speak(text){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if('speechSynthesis' in window){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.speechSynthesis.cancel();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const u=new SpeechSynthesisUtterance(text);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>u.lang='en-US'; u.rate=0.85;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.speechSynthesis.speak(u);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== TOAST =====</p>
+<p class="p1">function showToast(msg,color='#22c55e'){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const d=document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>d.className='toast';d.style.background=color;d.textContent=msg;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.body.appendChild(d);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>setTimeout(()=&gt;d.remove(),2500);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== DATA =====</p>
+<p class="p1">const questions = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"Do you think people are too materialistic nowadays?", vn:"Bạn có nghĩ mọi người ngày nay quá vật chất không?",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>hints:{en:["Think about what people value: things vs experiences","Consider advertising influence","Compare past and present"],vn:["Nghĩ về giá trị: vật chất vs trải nghiệm","Ảnh hưởng của quảng cáo","So sánh quá khứ và hiện tại"]}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"How has online shopping changed people's habits?",vn:"Mua sắm trực tuyến đã thay đổi thói quen của mọi người như thế nào?",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>hints:{en:["Convenience and speed","Less visiting physical stores","Comparing prices easily"],vn:["Thuận tiện và nhanh chóng","Ít đến cửa hàng hơn","Dễ so sánh giá"]}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"What are the advantages of shopping in local markets?",vn:"Lợi ích của việc mua sắm ở chợ địa phương là gì?",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>hints:{en:["Fresh products","Supporting local businesses","Social interaction"],vn:["Sản phẩm tươi","Hỗ trợ kinh doanh địa phương","Giao tiếp xã hội"]}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"Do you think shopping malls will disappear in the future?",vn:"Bạn có nghĩ trung tâm thương mại sẽ biến mất trong tương lai không?",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>hints:{en:["Online shopping growth","Malls as entertainment","Some people prefer trying before buying"],vn:["Mua sắm online tăng","Trung tâm thương mại như giải trí","Một số người thích thử trước khi mua"]}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"How does advertising influence what people buy?",vn:"Quảng cáo ảnh hưởng đến việc mua sắm của mọi người như thế nào?",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>hints:{en:["Creates desire for things we don't need","Celebrity endorsements","Social media ads"],vn:["Tạo mong muốn cho thứ không cần","Người nổi tiếng quảng cáo","Quảng cáo mạng xã hội"]}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"Is it better to save money or spend it?",vn:"Tiết kiệm tiền hay tiêu tiền thì tốt hơn?",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>hints:{en:["Balance is important","Saving for emergencies","Spending on experiences"],vn:["Cân bằng quan trọng","Tiết kiệm cho khẩn cấp","Chi tiêu cho trải nghiệm"]}}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">const vocabData = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{cat:{en:"Materialism",vn:"Chủ nghĩa vật chất"},words:[</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"materialistic",meaning:"caring too much about money and things",vn:"vật chất, ham vật chất",ex:"Some people are very materialistic and always want new things."},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"consumer culture",meaning:"a way of life focused on buying things",vn:"văn hóa tiêu dùng",ex:"Consumer culture encourages people to buy more than they need."},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"brand-conscious",meaning:"caring a lot about famous brand names",vn:"chú trọng thương hiệu",ex:"Young people are often brand-conscious when buying clothes."}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>]},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{cat:{en:"Online Shopping",vn:"Mua sắm trực tuyến"},words:[</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"convenient",meaning:"easy and saves time",vn:"thuận tiện",ex:"Online shopping is very convenient because you can buy from home."},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"delivery service",meaning:"bringing goods to your home",vn:"dịch vụ giao hàng",ex:"Most online stores offer fast delivery service."},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"compare prices",meaning:"look at different prices to find the best",vn:"so sánh giá",ex:"I always compare prices before buying anything online."}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>]},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{cat:{en:"Advertising",vn:"Quảng cáo"},words:[</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"influence",meaning:"have an effect on someone's decisions",vn:"ảnh hưởng",ex:"Advertising can influence people to buy things they don't need."},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"promote",meaning:"to advertise or support something",vn:"quảng bá",ex:"Companies promote their products on social media."},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"target audience",meaning:"the group of people a product is made for",vn:"đối tượng mục tiêu",ex:"The target audience for this ad is young women."}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>]},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{cat:{en:"Markets &amp; Environment",vn:"Chợ &amp; Môi trường"},words:[</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"sustainable",meaning:"good for the environment long-term",vn:"bền vững",ex:"Buying sustainable products helps protect the environment."},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"local produce",meaning:"food grown near where you live",vn:"nông sản địa phương",ex:"Local produce is often fresher than imported food."},</p>
+<p class="p1"><span class="Apple-converted-space">    </span>{word:"bargain",meaning:"something bought at a low price",vn:"mặc cả / món hời",ex:"I found a great bargain at the market today."}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>]}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">const grammarData = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{name:{en:"Present Perfect",vn:"Thì hiện tại hoàn thành"},</p>
+<p class="p1"><span class="Apple-converted-space">   </span>desc:{en:"Use to talk about experiences or changes from past to now.",vn:"Dùng để nói về trải nghiệm hoặc thay đổi từ quá khứ đến bây giờ."},</p>
+<p class="p1"><span class="Apple-converted-space">   </span>ex:"Online shopping &lt;b&gt;has changed&lt;/b&gt; the way people buy things.",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>exercise:{type:"error",sentence:"I have went shopping online many times.",correct:"I have gone shopping online many times.",explain:{en:"Use past participle 'gone' not 'went'.",vn:"Dùng quá khứ phân từ 'gone' không phải 'went'."}}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{name:{en:"Future (will / going to)",vn:"Tương lai (will / going to)"},</p>
+<p class="p1"><span class="Apple-converted-space">   </span>desc:{en:"Use 'will' for predictions, 'going to' for plans.",vn:"Dùng 'will' cho dự đoán, 'going to' cho kế hoạch."},</p>
+<p class="p1"><span class="Apple-converted-space">   </span>ex:"I think shopping malls &lt;b&gt;will become&lt;/b&gt; less popular. I &lt;b&gt;am going to&lt;/b&gt; buy a new phone.",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>exercise:{type:"error",sentence:"I think online shopping will to grow in the future.",correct:"I think online shopping will grow in the future.",explain:{en:"Don't use 'to' after 'will'.",vn:"Không dùng 'to' sau 'will'."}}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{name:{en:"Used to",vn:"Used to (đã từng)"},</p>
+<p class="p1"><span class="Apple-converted-space">   </span>desc:{en:"Use to compare past habits with present.",vn:"Dùng để so sánh thói quen quá khứ với hiện tại."},</p>
+<p class="p1"><span class="Apple-converted-space">   </span>ex:"People &lt;b&gt;used to&lt;/b&gt; shop at markets, but now they shop online.",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>exercise:{type:"error",sentence:"I use to go to the mall every weekend.",correct:"I used to go to the mall every weekend.",explain:{en:"Use 'used to' (past tense) not 'use to'.",vn:"Dùng 'used to' (quá khứ) không phải 'use to'."}}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{name:{en:"Cause &amp; Effect",vn:"Nguyên nhân &amp; Kết quả"},</p>
+<p class="p1"><span class="Apple-converted-space">   </span>desc:{en:"Use because, so, therefore, as a result.",vn:"Dùng because, so, therefore, as a result."},</p>
+<p class="p1"><span class="Apple-converted-space">   </span>ex:"&lt;b&gt;Because&lt;/b&gt; of advertising, people buy more things. &lt;b&gt;As a result&lt;/b&gt;, they spend too much.",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>exercise:{type:"error",sentence:"Because advertising is everywhere, so people buy more.",correct:"Because advertising is everywhere, people buy more.",explain:{en:"Don't use 'because' and 'so' together.",vn:"Không dùng 'because' và 'so' cùng lúc."}}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{name:{en:"Second Conditional",vn:"Câu điều kiện loại 2"},</p>
+<p class="p1"><span class="Apple-converted-space">   </span>desc:{en:"Use to imagine unreal situations.",vn:"Dùng để tưởng tượng tình huống không thực."},</p>
+<p class="p1"><span class="Apple-converted-space">   </span>ex:"If I &lt;b&gt;had&lt;/b&gt; more money, I &lt;b&gt;would buy&lt;/b&gt; sustainable products.",</p>
+<p class="p1"><span class="Apple-converted-space">   </span>exercise:{type:"error",sentence:"If I have a lot of money, I would travel the world.",correct:"If I had a lot of money, I would travel the world.",explain:{en:"Use past tense 'had' in the if-clause.",vn:"Dùng quá khứ 'had' trong mệnh đề if."}}}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">const pronData = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{sentence:"I think PEOPLE are TOO materialistic NOWadays.",stress:["PEOPLE","TOO","NOWadays"],</p>
+<p class="p1"><span class="Apple-converted-space">   </span>note:{en:"Stress content words: nouns, adjectives, adverbs",vn:"Nhấn từ nội dung: danh từ, tính từ, trạng từ"}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{sentence:"Online SHOPPING has CHANGED the WAY we BUY things.",stress:["SHOPPING","CHANGED","WAY","BUY"],</p>
+<p class="p1"><span class="Apple-converted-space">   </span>note:{en:"Stress the key information words",vn:"Nhấn các từ mang thông tin chính"}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{sentence:"I USED to shop at MARKETS, but NOW I shop ONLINE.",stress:["USED","MARKETS","NOW","ONLINE"],</p>
+<p class="p1"><span class="Apple-converted-space">   </span>note:{en:"Stress words that show contrast (past vs present)",vn:"Nhấn từ thể hiện sự tương phản (quá khứ vs hiện tại)"}},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{sentence:"ADvertising can INfluence what people BUY.",stress:["AD","IN","BUY"],</p>
+<p class="p1"><span class="Apple-converted-space">   </span>note:{en:"Word stress: ADvertising (stress on 1st), INfluence (stress on 1st)",vn:"Trọng âm: ADvertising (âm 1), INfluence (âm 1)"}}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">const practiceQs = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"Do you prefer shopping online or in stores? Why?",vn:"Bạn thích mua sắm online hay tại cửa hàng? Tại sao?"},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"How has shopping changed compared to the past?",vn:"Mua sắm đã thay đổi như thế nào so với trước đây?"},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"Do you think advertising has a positive or negative effect?",vn:"Bạn nghĩ quảng cáo có tác động tích cực hay tiêu cực?"}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== RENDER FUNCTIONS =====</p>
+<p class="p2"><br></p>
+<p class="p1">function renderQuestions(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sec = document.getElementById('sec0');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>sec.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="font-display text-2xl font-bold mb-1"&gt;${t('💬 Speaking Questions','💬 Câu hỏi Nói')}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="text-sm opacity-60 mb-4"&gt;${t('IELTS Speaking Part 1–3 about Shopping','IELTS Speaking Phần 1–3 về Mua sắm')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>${questions.map((q,i)=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex items-start gap-3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background:var(--c-primary);color:#fff"&gt;${i+1}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="flex-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="font-semibold"&gt;${q[lang]}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>${lang==='vn'?`&lt;p class="text-sm opacity-50 mt-1"&gt;${q.en}&lt;/p&gt;`:''}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex gap-2 mt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button onclick="speak('${q.en.replace(/'/g,"\\'")}')" class="btn-secondary text-xs flex items-center gap-1"&gt;&lt;i data-lucide="volume-2" style="width:14px;height:14px"&gt;&lt;/i&gt; ${t('Listen','Nghe')}&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button onclick="toggleHint(${i})" class="btn-secondary text-xs flex items-center gap-1"&gt;&lt;i data-lucide="lightbulb" style="width:14px;height:14px"&gt;&lt;/i&gt; ${t('Hint','Gợi ý')}&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div id="hint${i}" class="hint-content mt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul class="text-sm space-y-1 pl-4 list-disc opacity-70"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>${q.hints[lang].map(h=&gt;`&lt;li&gt;${h}&lt;/li&gt;`).join('')}</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`).join('')}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function toggleHint(i){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('hint'+i).classList.toggle('open');</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// === VOCAB ===</p>
+<p class="p1">let vocabQuizState = {};</p>
+<p class="p1">function renderVocab(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sec = document.getElementById('sec1');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>sec.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="font-display text-2xl font-bold mb-1"&gt;${t('📖 Vocabulary','📖 Từ vựng')}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="text-sm opacity-60 mb-4"&gt;${t('Learn key words for Shopping topics','Học từ khóa cho chủ đề Mua sắm')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>${vocabData.map((cat,ci)=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="mb-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 class="font-bold text-lg mb-2" style="color:var(--c-primary)"&gt;${cat.cat[lang]}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>${cat.words.map(w=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="flex items-center justify-between mb-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;span class="font-bold text-base"&gt;${w.word}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;button onclick="speak('${w.word}')" class="btn-secondary text-xs px-2 py-1"&gt;&lt;i data-lucide="volume-2" style="width:12px;height:12px"&gt;&lt;/i&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-sm"&gt;&lt;span class="opacity-60"&gt;${t('Meaning','Nghĩa')}:&lt;/span&gt; ${w.meaning}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-sm"&gt;&lt;span class="opacity-60"&gt;🇻🇳&lt;/span&gt; ${w.vn}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-sm mt-1 italic opacity-70"&gt;"${w.ex}"&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="speak('${w.ex.replace(/'/g,"\\'")}')" class="text-xs mt-1 opacity-50 underline"&gt;${t('Listen to example','Nghe ví dụ')}&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`).join('')}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`).join('')}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="mt-6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="font-display text-xl font-bold mb-3"&gt;${t('🧠 Mini Quiz: Match the word','🧠 Quiz nhỏ: Nối từ')}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div id="vocabQuiz"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>renderVocabQuiz();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function renderVocabQuiz(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const allWords = vocabData.flatMap(c=&gt;c.words);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const selected = allWords.sort(()=&gt;Math.random()-.5).slice(0,4);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const meanings = selected.map(w=&gt;w.meaning).sort(()=&gt;Math.random()-.5);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>vocabQuizState = {selected, answers:{}, meanings};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const container = document.getElementById('vocabQuiz');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!container)return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>container.innerHTML = selected.map((w,i)=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card" id="vq${i}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="font-bold mb-2"&gt;${w.word}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="space-y-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>${meanings.map((m,mi)=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="quiz-option" onclick="checkVocabQuiz(${i},${mi},'${m.replace(/'/g,"\\'")}')"&gt;${m}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>`).join('')}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`).join('');</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function checkVocabQuiz(qi,mi,chosen){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const w = vocabQuizState.selected[qi];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const card = document.getElementById('vq'+qi);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const opts = card.querySelectorAll('.quiz-option');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>opts.forEach((o,idx)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(o.textContent===w.meaning) o.classList.add('correct');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>else if(idx===mi &amp;&amp; chosen!==w.meaning) o.classList.add('wrong');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>o.style.pointerEvents='none';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(chosen===w.meaning){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>localScores.vocab_score = Math.min(100, localScores.vocab_score+10);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showToast(t('✅ Correct!','✅ Đúng rồi!'));</p>
+<p class="p1"><span class="Apple-converted-space">    </span>saveProgress();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showToast(t('❌ Try again next time!','❌ Lần sau nhé!'),'#ef4444');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// === GRAMMAR ===</p>
+<p class="p1">function renderGrammar(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sec = document.getElementById('sec2');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>sec.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="font-display text-2xl font-bold mb-1"&gt;${t('✍️ Grammar','✍️ Ngữ pháp')}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="text-sm opacity-60 mb-4"&gt;${t('Key structures for IELTS Speaking','Cấu trúc quan trọng cho IELTS Speaking')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>${grammarData.map((g,i)=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 class="font-bold text-lg mb-1" style="color:var(--c-primary)"&gt;${g.name[lang]}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-sm mb-2 opacity-70"&gt;${g.desc[lang]}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="text-sm p-3 rounded-xl mb-3" style="background:var(--c-secondary)"&gt;${g.ex}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="mt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="text-sm font-semibold mb-1"&gt;${t('🔍 Find the error:','🔍 Tìm lỗi sai:')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="text-sm italic mb-2" id="gSent${i}"&gt;"${g.exercise.sentence}"&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="flex gap-2 flex-wrap" id="gBtns${i}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="showGrammarAnswer(${i})" class="btn-primary text-xs"&gt;${t('Show Answer','Xem đáp án')}&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="speak('${g.exercise.correct.replace(/'/g,"\\'")}')" class="btn-secondary text-xs"&gt;&lt;i data-lucide="volume-2" style="width:12px;height:12px"&gt;&lt;/i&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div id="gAns${i}" class="hidden mt-2 text-sm p-3 rounded-xl" style="background:#f0fdf4;border:1px solid #22c55e"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="font-semibold"&gt;✅ ${g.exercise.correct}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="opacity-70 mt-1"&gt;${g.exercise.explain[lang]}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`).join('')}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function showGrammarAnswer(i){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>document.getElementById('gAns'+i).classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localScores.grammar_score = Math.min(100, localScores.grammar_score+10);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>saveProgress();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// === PRONUNCIATION ===</p>
+<p class="p1">let pronCompleted = new Set();</p>
+<p class="p1">function renderPronunciation(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sec = document.getElementById('sec3');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>sec.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="font-display text-2xl font-bold mb-1"&gt;${t('🗣️ Pronunciation','🗣️ Phát âm')}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="text-sm opacity-60 mb-4"&gt;${t('Practice sentence stress and intonation','Luyện trọng âm câu và ngữ điệu')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>${pronData.map((p,i)=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const stressedSentence = p.sentence.replace(/([A-Z]{2,}[a-z]*)/g, '&lt;span class="stress-high"&gt;$1&lt;/span&gt;');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return `</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="text-lg mb-2"&gt;${stressedSentence}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-xs opacity-60 mb-3"&gt;💡 ${p.note[lang]}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex gap-2 flex-wrap"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="speak('${p.sentence.replace(/'/g,"\\'")}')" class="btn-primary text-xs flex items-center gap-1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;i data-lucide="play" style="width:14px;height:14px"&gt;&lt;/i&gt; ${t('Listen','Nghe')}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="markPronDone(${i})" class="btn-secondary text-xs flex items-center gap-1" id="pronBtn${i}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;i data-lucide="check" style="width:14px;height:14px"&gt;&lt;/i&gt; ${pronCompleted.has(i)?t('Done ✅','Xong ✅'):t('I practiced this','Tôi đã luyện')}</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}).join('')}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card mt-4" style="background:var(--c-primary);color:#fff"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="font-bold"&gt;${t('💡 Tip: Speak out loud!','💡 Mẹo: Nói to lên!')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="text-sm opacity-80 mt-1"&gt;${t('Listen first, then repeat 3 times. Focus on the stressed words (shown in color).','Nghe trước, sau đó lặp lại 3 lần. Tập trung vào từ được nhấn (hiển thị màu).')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function markPronDone(i){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>pronCompleted.add(i);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const btn = document.getElementById('pronBtn'+i);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(btn) btn.innerHTML = `&lt;i data-lucide="check" style="width:14px;height:14px"&gt;&lt;/i&gt; ${t('Done ✅','Xong ✅')}`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>localScores.pronunciation_done = Math.round((pronCompleted.size/pronData.length)*100);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>saveProgress();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>showToast(t('🎉 Great job!','🎉 Tuyệt vời!'));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// === PRACTICE ===</p>
+<p class="p1">const sampleAnswers = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"I prefer shopping online because it's more convenient. I can buy from home and compare prices easily. However, I sometimes miss going to physical stores because you can see and touch the products before buying.",vn:"Tôi thích mua sắm online hơn vì nó thuận tiện hơn. Tôi có thể mua từ nhà và dễ dàng so sánh giá. Tuy nhiên, đôi khi tôi nhớ đi đến các cửa hàng vật lý vì bạn có thể nhìn thấy và chạm vào các sản phẩm trước khi mua."},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"Shopping has changed a lot compared to the past. In the past, people used to go to markets and shops directly. Nowadays, people can shop online anytime, anywhere. This has made shopping more convenient but also encouraged people to buy more things than they need.",vn:"Mua sắm đã thay đổi rất nhiều so với trước đây. Trước đây, mọi người thường đi đến chợ và cửa hàng trực tiếp. Ngày nay, mọi người có thể mua sắm online bất cứ lúc nào, ở bất cứ đâu. Điều này đã làm cho mua sắm trở nên thuận tiện hơn nhưng cũng khuyến khích mọi người mua nhiều thứ hơn họ cần."},</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{en:"I think advertising has both positive and negative effects. On the one hand, it helps people learn about new products and companies. On the other hand, advertising can influence people to buy things they don't need, which is wasteful. As a result, people should be more critical when watching ads.",vn:"Tôi nghĩ quảng cáo có cả tác động tích cực và tiêu cực. Một mặt, nó giúp mọi người tìm hiểu về các sản phẩm và công ty mới. Mặt khác, quảng cáo có thể ảnh hưởng đến mọi người mua những thứ họ không cần, điều này lãng phí. Do đó, mọi người nên có cái nhìn phê phán hơn khi xem quảng cáo."}</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">let practiceAnswers = {};</p>
+<p class="p1">function renderPractice(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sec = document.getElementById('sec4');</p>
+<p class="p1"><span class="Apple-converted-space">  </span>sec.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="font-display text-2xl font-bold mb-1"&gt;${t('🎤 Practice','🎤 Luyện tập')}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="text-sm opacity-60 mb-4"&gt;${t('Answer these questions and get feedback','Trả lời câu hỏi và nhận phản hồi')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>${practiceQs.map((q,i)=&gt;`</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="font-bold mb-2"&gt;${q[lang]}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>${lang==='vn'?`&lt;p class="text-xs opacity-40 mb-2"&gt;${q.en}&lt;/p&gt;`:''}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;textarea id="pAns${i}" rows="4" class="w-full p-3 rounded-xl text-sm border" style="border-color:var(--c-secondary);background:var(--c-surface)" placeholder="${t('Type your answer here...','Nhập câu trả lời...')}"&gt;${practiceAnswers[i]||''}&lt;/textarea&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="flex gap-2 flex-wrap mt-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="speak('${q.en.replace(/'/g,"\\'")}')" class="btn-secondary text-xs"&gt;&lt;i data-lucide="volume-2" style="width:14px;height:14px"&gt;&lt;/i&gt;&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="showSampleAnswer(${i})" class="btn-secondary text-xs"&gt;${t('📝 Sample Answer','📝 Mẫu trả lời')}&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="analyzePractice(${i})" class="btn-primary text-xs"&gt;${t('Get Feedback','Nhận phản hồi')}&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="pFeedback${i}" class="mt-3"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`).join('')}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>lucide.createIcons();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function showSampleAnswer(i){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const textarea = document.getElementById('pAns'+i);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sample = sampleAnswers[i][lang];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>textarea.value = sample;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>textarea.style.borderColor = '#22c55e';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>showToast(t('📝 Sample answer loaded!','📝 Mẫu trả lời đã tải!'));</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function analyzePractice(i){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const textarea = document.getElementById('pAns'+i);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const answer = textarea.value.trim();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>practiceAnswers[i] = answer;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(!answer){</p>
+<p class="p1"><span class="Apple-converted-space">    </span>showToast(t('Please write an answer first','Hãy viết câu trả lời trước'),'#f59e0b');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const words = answer.split(/\s+/).length;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sentences = answer.split(/[.!?]+/).filter(s=&gt;s.trim()).length;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>// Simple analysis</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const discourseMarkers = ['in my opinion','i think','on the other hand','for example','however','moreover','in addition','as a result','therefore','firstly','secondly','in my view','personally'];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const usedMarkers = discourseMarkers.filter(m=&gt;answer.toLowerCase().includes(m));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const vocabWords = vocabData.flatMap(c=&gt;c.words.map(w=&gt;w.word.toLowerCase()));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const usedVocab = vocabWords.filter(v=&gt;answer.toLowerCase().includes(v));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const grammarPatterns = ['have been','has been','have changed','used to','will be','going to','would be','if i had','because','as a result'];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const usedGrammar = grammarPatterns.filter(p=&gt;answer.toLowerCase().includes(p));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>let vocabLevel = words&lt;20?t('⚠️ Basic - try using more vocabulary','⚠️ Cơ bản - thử dùng thêm từ vựng'):</p>
+<p class="p1"><span class="Apple-converted-space">    </span>usedVocab.length&gt;0?t('✅ Good - you used topic vocabulary!','✅ Tốt - bạn đã dùng từ vựng chủ đề!'):</p>
+<p class="p1"><span class="Apple-converted-space">    </span>t('💡 Try including words from the Vocabulary section','💡 Thử dùng từ từ phần Từ vựng');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>let grammarLevel = usedGrammar.length&gt;0?t('✅ Good grammar structures detected','✅ Phát hiện cấu trúc ngữ pháp tốt'):</p>
+<p class="p1"><span class="Apple-converted-space">    </span>t('💡 Try using structures from the Grammar section','💡 Thử dùng cấu trúc từ phần Ngữ pháp');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>let ideaLevel = sentences&gt;=2?t('✅ Good idea development','✅ Phát triển ý tốt'):</p>
+<p class="p1"><span class="Apple-converted-space">    </span>t('💡 Try to give reasons and examples','💡 Thử đưa ra lý do và ví dụ');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const fb = document.getElementById('pFeedback'+i);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>fb.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="p-4 rounded-xl text-sm" style="background:var(--c-secondary)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="font-bold mb-2"&gt;${t('📝 Feedback','📝 Phản hồi')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="space-y-2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;b&gt;${t('Words','Số từ')}:&lt;/b&gt; ${words} ${words&lt;30?t('(Try 40+ words)','(Thử 40+ từ)'):t('(Good length!)','(Độ dài tốt!)')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;b&gt;${t('Vocabulary','Từ vựng')}:&lt;/b&gt; ${vocabLevel}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;b&gt;${t('Grammar','Ngữ pháp')}:&lt;/b&gt; ${grammarLevel}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;b&gt;${t('Ideas','Ý tưởng')}:&lt;/b&gt; ${ideaLevel}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&lt;b&gt;${t('Discourse Markers','Từ nối')}:&lt;/b&gt; ${usedMarkers.length&gt;0?'✅ '+usedMarkers.join(', '):t('💡 Try: "In my opinion", "For example", "On the other hand"','💡 Thử: "In my opinion", "For example", "On the other hand"')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>${words&gt;=20?`&lt;p class="mt-3 font-bold" style="color:var(--c-primary)"&gt;${t('🌟 Keep going! You are improving!','🌟 Tiếp tục! Bạn đang tiến bộ!')}&lt;/p&gt;`:''}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>localScores.practice_count++;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>saveProgress();</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// === PROGRESS ===</p>
+<p class="p1">function renderProgress(){</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const s = localScores;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const sec = document.getElementById('sec5');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const strengths = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const weaknesses = [];</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(s.vocab_score&gt;=50) strengths.push(t('Vocabulary','Từ vựng')); else weaknesses.push(t('Vocabulary','Từ vựng'));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(s.grammar_score&gt;=30) strengths.push(t('Grammar','Ngữ pháp')); else weaknesses.push(t('Grammar','Ngữ pháp'));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(s.pronunciation_done&gt;=50) strengths.push(t('Pronunciation','Phát âm')); else weaknesses.push(t('Pronunciation','Phát âm'));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>if(s.practice_count&gt;=2) strengths.push(t('Speaking Practice','Luyện nói')); else weaknesses.push(t('Speaking Practice','Luyện nói'));</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>sec.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2 class="font-display text-2xl font-bold mb-1"&gt;${t('📊 Your Progress','📊 Tiến độ của bạn')}&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="text-sm opacity-60 mb-4"&gt;${t('Track your learning journey','Theo dõi hành trình học tập')}&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="font-semibold mb-2"&gt;${t('Vocabulary Quiz','Quiz Từ vựng')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="progress-bar"&gt;&lt;div class="progress-fill" style="width:${s.vocab_score}%;background:var(--c-primary)"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="text-xs mt-1 opacity-60"&gt;${s.vocab_score}%&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="font-semibold mb-2"&gt;${t('Grammar Exercises','Bài tập Ngữ pháp')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="progress-bar"&gt;&lt;div class="progress-fill" style="width:${s.grammar_score}%;background:#22c55e"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="text-xs mt-1 opacity-60"&gt;${s.grammar_score}%&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="font-semibold mb-2"&gt;${t('Pronunciation Practice','Luyện Phát âm')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="progress-bar"&gt;&lt;div class="progress-fill" style="width:${s.pronunciation_done}%;background:#f59e0b"&gt;&lt;/div&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="text-xs mt-1 opacity-60"&gt;${s.pronunciation_done}%&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="font-semibold mb-2"&gt;${t('Practice Attempts','Số lần Luyện tập')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="text-3xl font-bold" style="color:var(--c-primary)"&gt;${s.practice_count}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card mt-4" style="border:2px solid var(--c-primary)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h3 class="font-display text-lg font-bold mb-3"&gt;${t('📋 Final Report','📋 Báo cáo cuối')}&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="space-y-2 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="font-bold" style="color:#22c55e"&gt;${t('💪 Strengths:','💪 Điểm mạnh:')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;${strengths.length?strengths.join(', '):t('Keep practicing to build strengths!','Tiếp tục luyện tập để xây dựng điểm mạnh!')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="font-bold" style="color:#ef4444"&gt;${t('🔧 Needs Improvement:','🔧 Cần cải thiện:')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;${weaknesses.length?weaknesses.join(', '):t('Excellent work across all areas!','Tuyệt vời ở tất cả các lĩnh vực!')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="font-bold" style="color:var(--c-primary)"&gt;${t('📌 Suggested Focus:','📌 Đề xuất tập trung:')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;${weaknesses.length?t('Spend more time on: ','Dành thêm thời gian cho: ')+weaknesses[0]:t('Review all sections regularly','Ôn tập tất cả các phần thường xuyên')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="mt-4 text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="text-sm opacity-60 mb-2"&gt;${t('📸 Take a screenshot of this page to send to your teacher','📸 Chụp màn hình trang này để gửi giáo viên')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="card text-center p-6" style="border:2px dashed var(--c-primary)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="font-display text-lg font-bold"&gt;${t('IELTS Speaking Progress Report','Báo cáo Tiến độ IELTS Speaking')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-sm opacity-60 mt-1"&gt;${new Date().toLocaleDateString()}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="grid grid-cols-2 gap-3 mt-4 text-sm"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="p-2 rounded-xl" style="background:var(--c-secondary)"&gt;&lt;b&gt;${t('Vocab','Từ vựng')}&lt;/b&gt;&lt;br&gt;${s.vocab_score}%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="p-2 rounded-xl" style="background:var(--c-secondary)"&gt;&lt;b&gt;${t('Grammar','Ngữ pháp')}&lt;/b&gt;&lt;br&gt;${s.grammar_score}%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="p-2 rounded-xl" style="background:var(--c-secondary)"&gt;&lt;b&gt;${t('Pronun.','Phát âm')}&lt;/b&gt;&lt;br&gt;${s.pronunciation_done}%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="p-2 rounded-xl" style="background:var(--c-secondary)"&gt;&lt;b&gt;${t('Practice','Luyện tập')}&lt;/b&gt;&lt;br&gt;${s.practice_count}x&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="mt-3 text-xs opacity-50"&gt;${t('Generated by IELTS Speaking Self-Study App','Tạo bởi Ứng dụng Tự học IELTS Speaking')}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>`;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// ===== INIT =====</p>
+<p class="p1">applyColors(defaultConfig);</p>
+<p class="p1">applyFonts(defaultConfig);</p>
+<p class="p1">renderQuestions();</p>
+<p class="p1">lucide.createIcons();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space"> </span>&lt;script&gt;(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ebf4eb2e1fbb7d5',t:'MTc3NjEzNDAyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&amp;&amp;(document.onreadystatechange=e,c())}}}})();&lt;/script&gt;&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
