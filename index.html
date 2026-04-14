@@ -43,8 +43,7 @@ textarea:focus,input:focus{outline:2px solid var(--c-primary);outline-offset:1px
   <style>body { box-sizing: border-box; }</style>
  </head>
  <body class="h-full" style="background:var(--c-bg);color:var(--c-text)">
-  <div id="app" class="h-full w-full overflow-auto">
-   <!-- Header -->
+  <div id="app" class="h-full w-full overflow-auto"><!-- Header -->
    <header class="sticky top-0 z-50 backdrop-blur-md" style="background:rgba(250,247,242,.9);border-bottom:1px solid rgba(0,0,0,.06)">
     <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
      <div>
@@ -52,12 +51,10 @@ textarea:focus,input:focus{outline:2px solid var(--c-primary);outline-offset:1px
       <p id="appSubtitle" class="text-xs mt-0.5 opacity-60" data-en="Band 5.0 – 6.0 | Shopping Topic" data-vn="Band 5.0 – 6.0 | Chủ đề Mua sắm">Band 5.0 – 6.0 | Shopping Topic</p>
      </div><button id="langToggle" onclick="toggleLang()" class="btn-secondary text-sm flex items-center gap-1.5"> <i data-lucide="globe" style="width:16px;height:16px"></i> <span id="langLabel">VN</span> </button>
     </div><!-- Tabs -->
-    <div class="max-w-3xl mx-auto px-4 pb-2 flex gap-2 overflow-x-auto" id="tabBar">
-     <button class="tab-btn active text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(0)" data-en="Questions" data-vn="Câu hỏi">Questions</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(1)" data-en="Vocabulary" data-vn="Từ vựng">Vocabulary</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(2)" data-en="Grammar" data-vn="Ngữ pháp">Grammar</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(3)" data-en="Pronunciation" data-vn="Phát âm">Pronunciation</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(4)" data-en="Practice" data-vn="Luyện tập">Practice</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(5)" data-en="Progress" data-vn="Tiến độ">Progress</button>
+    <div class="max-w-3xl mx-auto px-4 pb-2 flex gap-2 overflow-x-auto" id="tabBar"><button class="tab-btn active text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(0)" data-en="Questions" data-vn="Câu hỏi">Questions</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(1)" data-en="Vocabulary" data-vn="Từ vựng">Vocabulary</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(2)" data-en="Grammar" data-vn="Ngữ pháp">Grammar</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(3)" data-en="Pronunciation" data-vn="Phát âm">Pronunciation</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(4)" data-en="Practice" data-vn="Luyện tập">Practice</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(5)" data-en="Progress" data-vn="Tiến độ">Progress</button>
     </div>
    </header>
-   <main class="max-w-3xl mx-auto px-4 py-6 pb-24">
-    <!-- ========== SECTION 0: QUESTIONS ========== -->
+   <main class="max-w-3xl mx-auto px-4 py-6 pb-24"><!-- ========== SECTION 0: QUESTIONS ========== -->
     <section id="sec0" class="fade-in"></section><!-- ========== SECTION 1: VOCABULARY ========== -->
     <section id="sec1" class="section-hidden fade-in"></section><!-- ========== SECTION 2: GRAMMAR ========== -->
     <section id="sec2" class="section-hidden fade-in"></section><!-- ========== SECTION 3: PRONUNCIATION ========== -->
@@ -633,10 +630,19 @@ function renderProgress(){
 }
 
 // ===== INIT =====
-applyColors(defaultConfig);
-applyFonts(defaultConfig);
-renderQuestions();
-lucide.createIcons();
+function initApp() {
+  applyColors(defaultConfig);
+  applyFonts(defaultConfig);
+  renderQuestions();
+  lucide.createIcons();
+}
+
+// Wait for DOM to be ready, then initialize
+if(document.readyState==='loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ebf4eb2e1fbb7d5',t:'MTc3NjEzNDAyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ebf575954675f71',t:'MTc3NjEzNDM3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
