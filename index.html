@@ -1,642 +1,1512 @@
-<!doctype html>
-<html lang="en" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IELTS Speaking Self-Study</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:wght@600;700&amp;display=swap" rel="stylesheet">
-  <style>
-html,body{margin:0;padding:0;height:100%;font-family:'DM Sans',sans-serif}
-*{box-sizing:border-box}
-.font-display{font-family:'Fraunces',serif}
-.tab-btn{transition:all .25s ease}
-.tab-btn.active{background:var(--c-primary);color:#fff;transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.card{background:var(--c-surface);border-radius:16px;padding:1.25rem;margin-bottom:1rem;border:1px solid rgba(0,0,0,.06);transition:box-shadow .2s}
-.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08)}
-.progress-bar{height:10px;border-radius:99px;background:#e5e7eb;overflow:hidden}
-.progress-fill{height:100%;border-radius:99px;transition:width .6s ease}
-.fade-in{animation:fadeIn .35s ease}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.stress-high{color:var(--c-primary);font-weight:700;font-size:1.15em}
-.btn-primary{background:var(--c-primary);color:#fff;border:none;border-radius:12px;padding:.6rem 1.2rem;cursor:pointer;font-weight:600;transition:all .2s}
-.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
-.btn-secondary{background:var(--c-secondary);color:var(--c-text);border:none;border-radius:12px;padding:.6rem 1.2rem;cursor:pointer;font-weight:500;transition:all .2s}
-.btn-secondary:hover{filter:brightness(.95)}
-.quiz-option{border:2px solid #e5e7eb;border-radius:12px;padding:.75rem 1rem;cursor:pointer;transition:all .2s;background:#fff}
-.quiz-option:hover{border-color:var(--c-primary);background:rgba(99,102,241,.04)}
-.quiz-option.correct{border-color:#22c55e;background:#f0fdf4}
-.quiz-option.wrong{border-color:#ef4444;background:#fef2f2}
-.section-hidden{display:none}
-.toast{position:fixed;top:1rem;right:1rem;padding:.75rem 1.25rem;border-radius:12px;color:#fff;font-weight:600;z-index:999;animation:slideIn .3s ease}
-@keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
-:root{--c-bg:#faf7f2;--c-surface:#ffffff;--c-text:#1e1b18;--c-primary:#6366f1;--c-secondary:#e8e5df}
-.hint-content{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.hint-content.open{max-height:600px}
-textarea:focus,input:focus{outline:2px solid var(--c-primary);outline-offset:1px}
-.recording-pulse{animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.4)}50%{box-shadow:0 0 0 12px rgba(239,68,68,0)}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Speaking Studio – Band 5–6</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F7F5F0;
+  --surface: #FFFFFF;
+  --surface2: #F0EDE6;
+  --border: #E4DFD5;
+  --text: #1A1714;
+  --text2: #6B6560;
+  --text3: #9B948C;
+  --accent: #2D6A4F;
+  --accent-light: #D8F3DC;
+  --accent2: #E07B39;
+  --accent2-light: #FDE8D8;
+  --accent3: #3A7CB8;
+  --accent3-light: #DBEAFE;
+  --accent4: #7B4EA0;
+  --accent4-light: #EDE9FE;
+  --danger: #C62828;
+  --danger-light: #FFEBEE;
+  --success: #2D6A4F;
+  --success-light: #D8F3DC;
+  --warn: #B45309;
+  --warn-light: #FEF3C7;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.07);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.10);
+  --transition: 0.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── HEADER ─────────────────────────────────────── */
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+}
+.header-inner {
+  max-width: 960px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px;
+  gap: 12px;
+}
+.logo {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 800; font-size: 18px; color: var(--accent);
+  text-decoration: none;
+}
+.logo-badge {
+  background: var(--accent); color: #fff;
+  border-radius: 8px; padding: 4px 8px; font-size: 12px; font-weight: 700;
+}
+.header-right { display: flex; align-items: center; gap: 10px; }
+.lang-toggle {
+  display: flex; border: 1.5px solid var(--border); border-radius: 20px; overflow: hidden;
+}
+.lang-btn {
+  padding: 5px 14px; font-size: 12px; font-weight: 700; border: none; background: none; cursor: pointer;
+  color: var(--text2); transition: var(--transition);
+}
+.lang-btn.active { background: var(--accent); color: #fff; }
+
+/* ── NAV TABS ────────────────────────────────────── */
+.nav-scroll {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto; scrollbar-width: none;
+}
+.nav-scroll::-webkit-scrollbar { display: none; }
+.nav-tabs {
+  max-width: 960px; margin: 0 auto;
+  display: flex; padding: 0 16px; gap: 0;
+}
+.nav-tab {
+  display: flex; align-items: center; gap: 6px;
+  padding: 14px 16px; font-size: 13px; font-weight: 600;
+  color: var(--text2); border: none; background: none; cursor: pointer;
+  border-bottom: 2.5px solid transparent; white-space: nowrap;
+  transition: var(--transition); position: relative;
+}
+.nav-tab .tab-icon { font-size: 16px; }
+.nav-tab:hover { color: var(--text); }
+.nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ── MAIN CONTENT ────────────────────────────────── */
+.main { max-width: 960px; margin: 0 auto; padding: 24px 16px 60px; }
+.section { display: none; animation: fadeUp 0.3s ease; }
+.section.active { display: block; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+
+.section-header { margin-bottom: 24px; }
+.section-title { font-size: 24px; font-weight: 800; color: var(--text); }
+.section-subtitle { font-size: 14px; color: var(--text2); margin-top: 4px; }
+
+/* ── CARDS ───────────────────────────────────────── */
+.card {
+  background: var(--surface); border-radius: var(--radius);
+  border: 1px solid var(--border); padding: 20px;
+  box-shadow: var(--shadow); margin-bottom: 16px;
+}
+.card-sm { padding: 14px 18px; }
+
+/* ── BUTTONS ─────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 18px; border-radius: 10px;
+  font-size: 13px; font-weight: 600; border: none; cursor: pointer;
+  transition: var(--transition); font-family: inherit;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #1f4f38; }
+.btn-secondary { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--border); }
+.btn-accent2 { background: var(--accent2); color: #fff; }
+.btn-accent2:hover { background: #c4692a; }
+.btn-accent3 { background: var(--accent3); color: #fff; }
+.btn-sm { padding: 6px 12px; font-size: 12px; border-radius: 8px; }
+.btn-icon { padding: 8px; border-radius: 8px; background: var(--surface2); border: 1px solid var(--border); color: var(--text2); cursor: pointer; font-size: 16px; transition: var(--transition); }
+.btn-icon:hover { background: var(--accent-light); color: var(--accent); }
+
+/* ── BADGE ───────────────────────────────────────── */
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.3px;
+}
+.badge-green { background: var(--accent-light); color: var(--accent); }
+.badge-orange { background: var(--accent2-light); color: var(--accent2); }
+.badge-blue { background: var(--accent3-light); color: var(--accent3); }
+.badge-purple { background: var(--accent4-light); color: var(--accent4); }
+
+/* ── PROGRESS BAR ────────────────────────────────── */
+.progress-bar { height: 8px; background: var(--surface2); border-radius: 999px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 999px; background: var(--accent); transition: width 0.5s ease; }
+
+/* ── QUESTIONS SECTION ───────────────────────────── */
+.q-card {
+  background: var(--surface); border-radius: var(--radius);
+  border: 1px solid var(--border); padding: 20px;
+  margin-bottom: 12px; box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.q-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(45,106,79,0.08); }
+.q-part { font-size: 11px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.q-text { font-size: 16px; font-weight: 600; color: var(--text); line-height: 1.5; }
+.q-actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.hint-box {
+  background: var(--accent-light); border-radius: var(--radius-sm);
+  padding: 14px; margin-top: 12px; display: none;
+  border-left: 3px solid var(--accent);
+}
+.hint-box.visible { display: block; animation: fadeUp 0.2s ease; }
+.hint-box ul { padding-left: 18px; }
+.hint-box li { font-size: 13px; color: var(--text); margin-bottom: 4px; }
+.hint-vn { color: var(--text2); font-size: 12px; }
+
+/* ── VOCABULARY SECTION ──────────────────────────── */
+.vocab-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.vocab-tab {
+  padding: 7px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  border: 1.5px solid var(--border); background: var(--surface); cursor: pointer;
+  color: var(--text2); transition: var(--transition);
+}
+.vocab-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.vocab-card {
+  background: var(--surface); border-radius: var(--radius);
+  border: 1px solid var(--border); padding: 16px; box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.vocab-card:hover { border-color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.vocab-word { font-size: 17px; font-weight: 800; color: var(--text); }
+.vocab-phonetic { font-size: 12px; color: var(--text3); font-style: italic; }
+.vocab-meaning { font-size: 13px; color: var(--text2); margin: 6px 0 4px; }
+.vocab-vn { font-size: 13px; color: var(--accent3); font-weight: 600; }
+.vocab-example { font-size: 13px; color: var(--text); background: var(--surface2); border-radius: 8px; padding: 8px 10px; margin-top: 8px; font-style: italic; line-height: 1.5; }
+.vocab-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
+
+/* Quiz */
+.quiz-area { margin-top: 24px; }
+.quiz-card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); padding: 20px; margin-bottom: 14px; }
+.quiz-q { font-weight: 700; margin-bottom: 12px; font-size: 15px; }
+.quiz-options { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  padding: 10px 16px; border-radius: 10px; border: 1.5px solid var(--border);
+  background: var(--surface2); cursor: pointer; font-size: 14px; font-weight: 500;
+  text-align: left; transition: var(--transition); font-family: inherit;
+}
+.quiz-opt:hover { border-color: var(--accent); background: var(--accent-light); }
+.quiz-opt.correct { background: var(--success-light); border-color: var(--success); color: var(--success); }
+.quiz-opt.wrong { background: var(--danger-light); border-color: var(--danger); color: var(--danger); }
+.fill-input {
+  width: 100%; padding: 10px 14px; border-radius: 10px; border: 1.5px solid var(--border);
+  background: var(--surface2); font-family: inherit; font-size: 14px; outline: none;
+  transition: var(--transition);
+}
+.fill-input:focus { border-color: var(--accent); background: var(--surface); }
+.fill-input.correct { border-color: var(--success); background: var(--success-light); }
+.fill-input.wrong { border-color: var(--danger); background: var(--danger-light); }
+
+/* ── GRAMMAR SECTION ─────────────────────────────── */
+.grammar-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.grammar-tab {
+  padding: 7px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+  border: 1.5px solid var(--border); background: var(--surface); cursor: pointer;
+  color: var(--text2); transition: var(--transition);
+}
+.grammar-tab.active { background: var(--accent3); border-color: var(--accent3); color: #fff; }
+.grammar-panel { display: none; }
+.grammar-panel.active { display: block; animation: fadeUp 0.2s ease; }
+.grammar-rule {
+  background: var(--accent3-light); border-radius: var(--radius-sm); padding: 14px 16px;
+  margin-bottom: 14px; border-left: 3px solid var(--accent3);
+}
+.grammar-formula { font-family: 'Lora', serif; font-size: 15px; font-weight: 600; color: var(--accent3); margin-bottom: 6px; }
+.grammar-explain { font-size: 13px; color: var(--text2); }
+.grammar-examples { list-style: none; }
+.grammar-examples li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.grammar-examples li:last-child { border-bottom: none; }
+.highlight-green { color: var(--accent); font-weight: 600; }
+.highlight-blue { color: var(--accent3); font-weight: 600; }
+
+/* ── PRONUNCIATION SECTION ───────────────────────── */
+.stress-word { display: inline-block; }
+.stress-word.stressed { font-weight: 800; color: var(--accent2); text-decoration: underline; text-decoration-style: wavy; }
+.stress-word.unstressed { color: var(--text2); }
+.intonation-arrow { font-size: 18px; margin-right: 4px; }
+.pronun-card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); padding: 20px; margin-bottom: 14px; }
+.pronun-sentence { font-size: 17px; line-height: 1.8; letter-spacing: 0.2px; padding: 12px 0; border-radius: var(--radius-sm); }
+.word-stress-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ws-card { background: var(--surface2); border-radius: var(--radius-sm); padding: 14px; text-align: center; }
+.ws-noun { font-size: 20px; font-weight: 800; }
+.ws-noun .stressed-syl { color: var(--accent2); }
+.ws-label { font-size: 11px; color: var(--text2); margin-top: 4px; }
+
+/* ── PRACTICE SECTION ────────────────────────────── */
+.practice-q { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 16px; line-height: 1.4; }
+.practice-textarea {
+  width: 100%; min-height: 120px; padding: 14px;
+  border-radius: var(--radius-sm); border: 1.5px solid var(--border);
+  font-family: inherit; font-size: 14px; resize: vertical;
+  background: var(--surface2); outline: none; transition: var(--transition);
+  line-height: 1.6;
+}
+.practice-textarea:focus { border-color: var(--accent); background: var(--surface); }
+.feedback-box {
+  background: var(--surface); border-radius: var(--radius);
+  border: 1px solid var(--border); padding: 20px; margin-top: 16px;
+  display: none;
+}
+.feedback-box.visible { display: block; animation: fadeUp 0.3s ease; }
+.feedback-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); }
+.feedback-row:last-child { border-bottom: none; }
+.feedback-label { font-size: 13px; font-weight: 600; color: var(--text2); }
+.feedback-score { display: flex; align-items: center; gap: 8px; }
+.score-dots { display: flex; gap: 4px; }
+.score-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--surface2); border: 1.5px solid var(--border); }
+.score-dot.filled { background: var(--accent); border-color: var(--accent); }
+.suggestion-box { background: var(--warn-light); border-radius: var(--radius-sm); padding: 14px; margin-top: 12px; border-left: 3px solid var(--warn); }
+.suggestion-title { font-weight: 700; font-size: 13px; color: var(--warn); margin-bottom: 6px; }
+.nav-arrows { display: flex; gap: 10px; align-items: center; margin-bottom: 20px; }
+.q-counter { font-size: 13px; color: var(--text2); font-weight: 600; }
+
+/* ── PROGRESS SECTION ────────────────────────────── */
+.progress-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-bottom: 24px; }
+.progress-stat { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); padding: 20px; text-align: center; box-shadow: var(--shadow); }
+.stat-icon { font-size: 28px; margin-bottom: 8px; }
+.stat-value { font-size: 28px; font-weight: 800; color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--text2); font-weight: 600; margin-top: 4px; }
+.stat-bar { margin-top: 10px; }
+.report-box {
+  background: linear-gradient(135deg, #F0F9F5, #E8F4FD);
+  border-radius: var(--radius); border: 1px solid var(--border);
+  padding: 24px; margin-top: 24px;
+}
+.report-title { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.report-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+@media (max-width: 600px) { .report-grid { grid-template-columns: 1fr; } }
+.report-section { background: var(--surface); border-radius: var(--radius-sm); padding: 14px; }
+.report-section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.report-section-title.green { color: var(--accent); }
+.report-section-title.orange { color: var(--accent2); }
+.report-section-title.blue { color: var(--accent3); }
+.report-section ul { padding-left: 16px; }
+.report-section li { font-size: 13px; color: var(--text2); margin-bottom: 4px; }
+.screenshot-btn {
+  display: flex; align-items: center; gap: 8px;
+  margin: 20px auto 0; padding: 12px 24px;
+  background: var(--text); color: #fff;
+  border-radius: 12px; font-size: 14px; font-weight: 700;
+  border: none; cursor: pointer; transition: var(--transition);
+}
+.screenshot-btn:hover { background: var(--accent); }
+
+/* ── MOTIVATIONAL TOAST ──────────────────────────── */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  background: var(--accent); color: #fff;
+  border-radius: 12px; padding: 14px 20px;
+  font-weight: 600; font-size: 14px;
+  box-shadow: var(--shadow-md);
+  transform: translateY(80px); opacity: 0;
+  transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+  max-width: 280px;
+}
+.toast.show { transform: none; opacity: 1; }
+
+/* ── MISC ────────────────────────────────────────── */
+.divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } .word-stress-grid { grid-template-columns: 1fr; } }
+.tag { display: inline-block; background: var(--surface2); border-radius: 6px; padding: 2px 8px; font-size: 11px; color: var(--text2); font-weight: 600; }
+.text-sm { font-size: 13px; color: var(--text2); }
+.text-xs { font-size: 11px; color: var(--text3); }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mb-8 { margin-bottom: 8px; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.gap-8 { gap: 8px; }
+.bold { font-weight: 700; }
+.italic { font-style: italic; }
+
+/* ── SAMPLE ANSWER ───────────────────────────────── */
+.sample-box {
+  background: var(--surface2); border-radius: var(--radius-sm);
+  padding: 16px; margin-top: 12px; display: none;
+  border-left: 3px solid var(--accent4);
+}
+.sample-box.visible { display: block; animation: fadeUp 0.2s ease; }
+.sample-label {
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.5px; color: var(--accent4); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 6px;
+}
+.sample-text { font-size: 14px; line-height: 1.75; color: var(--text); }
+.sample-text mark {
+  background: #FFF3B0; color: var(--text);
+  border-radius: 3px; padding: 0 2px;
+}
+.sample-text .conn { background: #D8F3DC; color: var(--accent); font-weight: 600; border-radius: 3px; padding: 0 3px; }
+.sample-text .vocab { background: #DBEAFE; color: var(--accent3); font-weight: 600; border-radius: 3px; padding: 0 3px; }
+.sample-text .grammar { background: #EDE9FE; color: var(--accent4); font-weight: 600; border-radius: 3px; padding: 0 3px; }
+.sample-legend { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--text2); }
+.legend-dot { width: 10px; height: 10px; border-radius: 3px; }
+.sample-vn { font-size: 13px; color: var(--text2); line-height: 1.7; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); display: none; }
+.sample-vn.visible { display: block; }
+.band-badge { background: var(--accent4-light); color: var(--accent4); border-radius: 6px; padding: 2px 8px; font-size: 11px; font-weight: 700; }
+
+/* Recording indicator */
+.recording-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--danger); display: inline-block; animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(1.3);} }
+
+/* Audio visual */
+.audio-bar { display: flex; align-items: center; gap: 6px; }
+.audio-wave { display: flex; align-items: center; gap: 2px; height: 20px; }
+.audio-wave span { display: inline-block; width: 3px; background: var(--accent); border-radius: 2px; animation: wave 0.8s ease-in-out infinite; }
+.audio-wave span:nth-child(2){animation-delay:0.1s} .audio-wave span:nth-child(3){animation-delay:0.2s} .audio-wave span:nth-child(4){animation-delay:0.3s} .audio-wave span:nth-child(5){animation-delay:0.4s}
+@keyframes wave { 0%,100%{height:4px} 50%{height:16px} }
+
+/* Responsive tweaks */
+@media(max-width:600px){ .section-title{font-size:20px;} .q-text{font-size:15px;} .header-inner{padding:10px 14px;} .main{padding:16px 12px 60px;} }
 </style>
-  <style>body { box-sizing: border-box; }</style>
- </head>
- <body class="h-full" style="background:var(--c-bg);color:var(--c-text)">
-  <div id="app" class="h-full w-full overflow-auto">
-   <!-- Header -->
-   <header class="sticky top-0 z-50 backdrop-blur-md" style="background:rgba(250,247,242,.9);border-bottom:1px solid rgba(0,0,0,.06)">
-    <div class="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between">
-     <div>
-      <h1 id="appTitle" class="font-display text-xl font-bold" style="color:var(--c-primary)">IELTS Speaking Self-Study</h1>
-      <p id="appSubtitle" class="text-xs mt-0.5 opacity-60" data-en="Band 5.0 – 6.0 | Shopping Topic" data-vn="Band 5.0 – 6.0 | Chủ đề Mua sắm">Band 5.0 – 6.0 | Shopping Topic</p>
-     </div><button id="langToggle" onclick="toggleLang()" class="btn-secondary text-sm flex items-center gap-1.5"> <i data-lucide="globe" style="width:16px;height:16px"></i> <span id="langLabel">VN</span> </button>
-    </div><!-- Tabs -->
-    <div class="max-w-3xl mx-auto px-4 pb-2 flex gap-2 overflow-x-auto" id="tabBar">
-     <button class="tab-btn active text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(0)" data-en="Questions" data-vn="Câu hỏi">Questions</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(1)" data-en="Vocabulary" data-vn="Từ vựng">Vocabulary</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(2)" data-en="Grammar" data-vn="Ngữ pháp">Grammar</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(3)" data-en="Pronunciation" data-vn="Phát âm">Pronunciation</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(4)" data-en="Practice" data-vn="Luyện tập">Practice</button> <button class="tab-btn text-xs px-3 py-1.5 rounded-full whitespace-nowrap" onclick="switchTab(5)" data-en="Progress" data-vn="Tiến độ">Progress</button>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-badge">IELTS</span>
+      <span data-en="Speaking Studio" data-vn="Luyện Nói IELTS">Speaking Studio</span>
     </div>
-   </header>
-   <main class="max-w-3xl mx-auto px-4 py-6 pb-24">
-    <!-- ========== SECTION 0: QUESTIONS ========== -->
-    <section id="sec0" class="fade-in"></section><!-- ========== SECTION 1: VOCABULARY ========== -->
-    <section id="sec1" class="section-hidden fade-in"></section><!-- ========== SECTION 2: GRAMMAR ========== -->
-    <section id="sec2" class="section-hidden fade-in"></section><!-- ========== SECTION 3: PRONUNCIATION ========== -->
-    <section id="sec3" class="section-hidden fade-in"></section><!-- ========== SECTION 4: PRACTICE ========== -->
-    <section id="sec4" class="section-hidden fade-in"></section><!-- ========== SECTION 5: PROGRESS ========== -->
-    <section id="sec5" class="section-hidden fade-in"></section>
-   </main>
+    <div class="header-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="langEN" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="langVN" onclick="setLang('vn')">VN</button>
+      </div>
+    </div>
   </div>
-  <script>
-// ===== STATE =====
-let lang = 'en';
-let currentTab = 0;
-let progressData = null; // from Data SDK
-let localScores = { vocab_score:0, grammar_score:0, pronunciation_done:0, practice_count:0 };
+</header>
 
-const defaultConfig = {
-  app_title: 'IELTS Speaking Self-Study',
-  subtitle: 'Band 5.0 – 6.0 | Shopping Topic',
-  background_color: '#faf7f2',
-  surface_color: '#ffffff',
-  text_color: '#1e1b18',
-  primary_color: '#6366f1',
-  secondary_color: '#e8e5df',
-  font_family: 'DM Sans',
-  font_size: 16
-};
+<!-- NAV TABS -->
+<nav class="nav-scroll">
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="showSection('questions',this)">
+      <span class="tab-icon">💬</span>
+      <span data-en="Questions" data-vn="Câu Hỏi">Questions</span>
+    </button>
+    <button class="nav-tab" onclick="showSection('vocabulary',this)">
+      <span class="tab-icon">📖</span>
+      <span data-en="Vocabulary" data-vn="Từ Vựng">Vocabulary</span>
+    </button>
+    <button class="nav-tab" onclick="showSection('grammar',this)">
+      <span class="tab-icon">✍️</span>
+      <span data-en="Grammar" data-vn="Ngữ Pháp">Grammar</span>
+    </button>
+    <button class="nav-tab" onclick="showSection('pronunciation',this)">
+      <span class="tab-icon">🗣️</span>
+      <span data-en="Pronunciation" data-vn="Phát Âm">Pronunciation</span>
+    </button>
+    <button class="nav-tab" onclick="showSection('practice',this)">
+      <span class="tab-icon">🎤</span>
+      <span data-en="Practice" data-vn="Luyện Tập">Practice</span>
+    </button>
+    <button class="nav-tab" onclick="showSection('progress',this)">
+      <span class="tab-icon">📊</span>
+      <span data-en="Progress" data-vn="Tiến Độ">Progress</span>
+    </button>
+  </div>
+</nav>
 
-function applyColors(c) {
-  document.documentElement.style.setProperty('--c-bg', c.background_color||defaultConfig.background_color);
-  document.documentElement.style.setProperty('--c-surface', c.surface_color||defaultConfig.surface_color);
-  document.documentElement.style.setProperty('--c-text', c.text_color||defaultConfig.text_color);
-  document.documentElement.style.setProperty('--c-primary', c.primary_color||defaultConfig.primary_color);
-  document.documentElement.style.setProperty('--c-secondary', c.secondary_color||defaultConfig.secondary_color);
-  document.body.style.background = c.background_color||defaultConfig.background_color;
-  document.body.style.color = c.text_color||defaultConfig.text_color;
-}
+<!-- MAIN -->
+<main class="main">
 
-function applyFonts(c) {
-  const ff = c.font_family||defaultConfig.font_family;
-  const fs = c.font_size||defaultConfig.font_size;
-  document.body.style.fontFamily = `${ff}, DM Sans, sans-serif`;
-  document.body.style.fontSize = fs+'px';
-}
+<!-- ── 1. QUESTIONS ── -->
+<section class="section active" id="questions">
+  <div class="section-header">
+    <div class="section-title" data-en="🛍️ Shopping – Speaking Questions" data-vn="🛍️ Mua Sắm – Câu Hỏi Nói">🛍️ Shopping – Speaking Questions</div>
+    <div class="section-subtitle" data-en="IELTS Part 1–3 practice questions. Tap 'Hint' for ideas!" data-vn="Câu hỏi luyện tập Part 1–3. Nhấn 'Gợi ý' để xem ý tưởng!">IELTS Part 1–3 practice questions. Tap 'Hint' for ideas!</div>
+  </div>
+  <div id="questionsContainer"></div>
+</section>
 
-// ===== ELEMENT SDK =====
-window.elementSdk.init({
-  defaultConfig,
-  onConfigChange: async(config)=>{
-    applyColors(config);
-    applyFonts(config);
-    const t = document.getElementById('appTitle');
-    if(t) t.textContent = config.app_title||defaultConfig.app_title;
-    const s = document.getElementById('appSubtitle');
-    if(s) s.textContent = config.subtitle||defaultConfig.subtitle;
-  },
-  mapToCapabilities:(config)=>({
-    recolorables:[
-      {get:()=>config.background_color||defaultConfig.background_color, set:v=>{config.background_color=v;window.elementSdk.setConfig({background_color:v})}},
-      {get:()=>config.surface_color||defaultConfig.surface_color, set:v=>{config.surface_color=v;window.elementSdk.setConfig({surface_color:v})}},
-      {get:()=>config.text_color||defaultConfig.text_color, set:v=>{config.text_color=v;window.elementSdk.setConfig({text_color:v})}},
-      {get:()=>config.primary_color||defaultConfig.primary_color, set:v=>{config.primary_color=v;window.elementSdk.setConfig({primary_color:v})}},
-      {get:()=>config.secondary_color||defaultConfig.secondary_color, set:v=>{config.secondary_color=v;window.elementSdk.setConfig({secondary_color:v})}}
-    ],
-    borderables:[],
-    fontEditable:{get:()=>config.font_family||defaultConfig.font_family, set:v=>{config.font_family=v;window.elementSdk.setConfig({font_family:v})}},
-    fontSizeable:{get:()=>config.font_size||defaultConfig.font_size, set:v=>{config.font_size=v;window.elementSdk.setConfig({font_size:v})}}
-  }),
-  mapToEditPanelValues:(config)=>new Map([
-    ['app_title', config.app_title||defaultConfig.app_title],
-    ['subtitle', config.subtitle||defaultConfig.subtitle]
-  ])
-});
+<!-- ── 2. VOCABULARY ── -->
+<section class="section" id="vocabulary">
+  <div class="section-header">
+    <div class="section-title" data-en="📖 Key Vocabulary" data-vn="📖 Từ Vựng Quan Trọng">📖 Key Vocabulary</div>
+    <div class="section-subtitle" data-en="Learn words by topic. Listen, understand, then try the quiz!" data-vn="Học từ theo chủ đề. Nghe, hiểu rồi làm bài kiểm tra!">Learn words by topic. Listen, understand, then try the quiz!</div>
+  </div>
+  <div class="vocab-tabs" id="vocabTopicTabs"></div>
+  <div class="vocab-grid" id="vocabGrid"></div>
+  <hr class="divider">
+  <div class="quiz-area">
+    <div class="flex items-center gap-8 mb-8">
+      <span style="font-size:20px">🧩</span>
+      <strong data-en="Mini Quiz" data-vn="Bài Kiểm Tra Nhỏ">Mini Quiz</strong>
+    </div>
+    <div id="quizContainer"></div>
+    <button class="btn btn-primary mt-16" onclick="checkQuiz()" data-en="✅ Check Answers" data-vn="✅ Kiểm Tra Đáp Án">✅ Check Answers</button>
+    <button class="btn btn-secondary mt-16" style="margin-left:8px" onclick="resetQuiz()" data-en="🔄 Reset" data-vn="🔄 Làm Lại">🔄 Reset</button>
+  </div>
+</section>
 
-// ===== DATA SDK =====
-const dataHandler = {
-  onDataChanged(data) {
-    const rec = data.find(d=>d.type==='progress');
-    if(rec) {
-      progressData = rec;
-      localScores.vocab_score = rec.vocab_score||0;
-      localScores.grammar_score = rec.grammar_score||0;
-      localScores.pronunciation_done = rec.pronunciation_done||0;
-      localScores.practice_count = rec.practice_count||0;
+<!-- ── 3. GRAMMAR ── -->
+<section class="section" id="grammar">
+  <div class="section-header">
+    <div class="section-title" data-en="✍️ Grammar for Speaking" data-vn="✍️ Ngữ Pháp Khi Nói">✍️ Grammar for Speaking</div>
+    <div class="section-subtitle" data-en="Key structures to sound fluent and accurate." data-vn="Các cấu trúc để nói trôi chảy và chính xác hơn.">Key structures to sound fluent and accurate.</div>
+  </div>
+  <div class="grammar-tabs" id="grammarTabs"></div>
+  <div id="grammarPanels"></div>
+</section>
+
+<!-- ── 4. PRONUNCIATION ── -->
+<section class="section" id="pronunciation">
+  <div class="section-header">
+    <div class="section-title" data-en="🗣️ Pronunciation Practice" data-vn="🗣️ Luyện Phát Âm">🗣️ Pronunciation Practice</div>
+    <div class="section-subtitle" data-en="Sentence stress, word stress, and intonation tips." data-vn="Trọng âm câu, trọng âm từ, và các mẹo ngữ điệu.">Sentence stress, word stress, and intonation tips.</div>
+  </div>
+  <div id="pronunciationContent"></div>
+</section>
+
+<!-- ── 5. PRACTICE ── -->
+<section class="section" id="practice">
+  <div class="section-header">
+    <div class="section-title" data-en="🎤 Speaking Practice" data-vn="🎤 Luyện Nói">🎤 Speaking Practice</div>
+    <div class="section-subtitle" data-en="Answer questions and get instant feedback!" data-vn="Trả lời câu hỏi và nhận phản hồi ngay lập tức!">Answer questions and get instant feedback!</div>
+  </div>
+  <div class="card">
+    <div class="nav-arrows">
+      <button class="btn btn-secondary btn-sm" onclick="prevPracticeQ()">← <span data-en="Prev" data-vn="Trước">Prev</span></button>
+      <span class="q-counter" id="practiceCounter">1 / 5</span>
+      <button class="btn btn-secondary btn-sm" onclick="nextPracticeQ()"><span data-en="Next" data-vn="Tiếp">Next</span> →</button>
+    </div>
+    <div class="practice-q" id="practiceQuestion"></div>
+    <div class="text-sm mb-8" id="practiceQuestionVN" style="color:var(--accent3);font-style:italic;margin-bottom:10px"></div>
+    <label class="text-sm bold" data-en="Your answer (write at least 3–4 sentences):" data-vn="Câu trả lời của bạn (viết ít nhất 3–4 câu):">Your answer (write at least 3–4 sentences):</label>
+    <textarea class="practice-textarea mt-8" id="practiceAnswer" placeholder="Start writing your answer here..."></textarea>
+    <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="analyzePractice()" data-en="🔍 Get Feedback" data-vn="🔍 Nhận Phản Hồi">🔍 Get Feedback</button>
+      <button class="btn btn-secondary" onclick="listenQuestion()" data-en="🔊 Hear Question" data-vn="🔊 Nghe Câu Hỏi">🔊 Hear Question</button>
+      <button class="btn btn-secondary" onclick="togglePracticeSample()" style="color:var(--accent4);border-color:var(--accent4)" data-en="📝 Sample Answer" data-vn="📝 Câu Mẫu">📝 Sample Answer</button>
+    </div>
+    <div class="sample-box" id="practiceSampleBox">
+      <div class="sample-label">📝 <span data-en="Sample Answer" data-vn="Câu Trả Lời Mẫu">Sample Answer</span> <span class="band-badge">Band 5–6</span>
+        <button onclick="speakPracticeSample()" class="btn-icon" style="padding:4px 8px;font-size:12px;margin-left:4px">🔊</button>
+        <button onclick="togglePracticeSampleVN()" class="btn-icon" style="padding:4px 8px;font-size:12px">🇻🇳</button>
+      </div>
+      <div class="sample-text" id="practiceSampleText"></div>
+      <div class="sample-vn" id="practiceSampleVN"></div>
+      <div class="sample-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#D8F3DC"></div> <span data-en="Connectors" data-vn="Liên từ">Connectors</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#DBEAFE"></div> <span data-en="Vocabulary" data-vn="Từ vựng">Vocabulary</span></div>
+        <div class="legend-item"><div class="legend-dot" style="background:#EDE9FE"></div> <span data-en="Grammar" data-vn="Ngữ pháp">Grammar</span></div>
+      </div>
+      <div style="margin-top:10px;background:var(--warn-light);border-radius:8px;padding:10px;border-left:3px solid var(--warn)">
+        <div style="font-size:11px;font-weight:700;color:var(--warn);margin-bottom:4px">💡 <span data-en="Teacher Note" data-vn="Giải thích">Teacher Note</span></div>
+        <div id="practiceSampleNoteText" style="font-size:12px;color:var(--text)"></div>
+      </div>
+    </div>
+    <div class="feedback-box" id="feedbackBox">
+      <div style="font-weight:800;font-size:15px;margin-bottom:14px" data-en="📝 Feedback" data-vn="📝 Phản Hồi">📝 Feedback</div>
+      <div id="feedbackContent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 6. PROGRESS ── -->
+<section class="section" id="progress">
+  <div class="section-header">
+    <div class="section-title" data-en="📊 Progress Summary" data-vn="📊 Tổng Kết Tiến Độ">📊 Progress Summary</div>
+    <div class="section-subtitle" data-en="Track your learning journey and see your strengths." data-vn="Theo dõi hành trình học và xem điểm mạnh của bạn.">Track your learning journey and see your strengths.</div>
+  </div>
+  <div class="progress-grid" id="progressGrid"></div>
+  <div class="report-box" id="reportBox">
+    <div class="report-title">📋 <span data-en="Your Study Report" data-vn="Báo Cáo Học Tập">Your Study Report</span></div>
+    <div class="report-grid" id="reportGrid"></div>
+    <button class="screenshot-btn" onclick="takeScreenshot()">📸 <span data-en="Take Screenshot to Send Teacher" data-vn="Chụp Màn Hình Gửi Giáo Viên">Take Screenshot to Send Teacher</span></button>
+  </div>
+</section>
+
+</main>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════
+
+const QUESTIONS = [
+  {
+    part: "Part 1", partVN: "Phần 1",
+    en: "Do you enjoy shopping? Why or why not?",
+    vn: "Bạn có thích mua sắm không? Tại sao?",
+    hints: {
+      en: ["Mention what you like buying (clothes, food, gadgets)", "Say if you prefer online or in-store", "Talk about how often you shop"],
+      vn: ["Đề cập đến thứ bạn thích mua (quần áo, thức ăn, thiết bị)", "Nói bạn thích mua online hay tại cửa hàng", "Nói về tần suất bạn mua sắm"]
+    },
+    sample: {
+      en: `<span class="conn">To be honest,</span> I quite enjoy shopping, <span class="grammar">especially</span> when I am looking for clothes or books. I <span class="grammar">usually</span> prefer shopping online <span class="conn">because</span> it is more <span class="vocab">convenient</span> — I can compare prices and read reviews before buying. <span class="conn">However,</span> I also like visiting local markets <span class="grammar">from time to time</span> <span class="conn">because</span> the atmosphere is lively and the prices are often lower. <span class="conn">On the other hand,</span> I try not to spend too much money, <span class="conn">so</span> I usually make a list before I go shopping.`,
+      vn: `Thành thật mà nói, tôi khá thích mua sắm, đặc biệt khi tìm quần áo hoặc sách. Tôi thường thích mua online vì tiện lợi hơn — tôi có thể so sánh giá và đọc đánh giá trước khi mua. Tuy nhiên, tôi cũng thích ghé chợ địa phương thỉnh thoảng vì không khí nhộn nhịp và giá thường rẻ hơn. Mặt khác, tôi cố gắng không chi tiêu quá nhiều, nên thường lập danh sách trước khi đi mua sắm.`,
+      note: { en: "Notice: 'To be honest' opens naturally. 'However' and 'On the other hand' add balance. Vocabulary: convenient.", vn: "Lưu ý: 'To be honest' mở đầu tự nhiên. 'However' và 'On the other hand' tạo sự cân bằng. Từ vựng: convenient." }
     }
-    if(currentTab===5) renderProgress();
+  },
+  {
+    part: "Part 1", partVN: "Phần 1",
+    en: "What was the last thing you bought that made you really happy?",
+    vn: "Thứ cuối cùng bạn mua khiến bạn thực sự vui là gì?",
+    hints: {
+      en: ["Describe the item and why you wanted it", "Explain how you felt after buying it", "Say if it was worth the money"],
+      vn: ["Mô tả món đồ và lý do bạn muốn mua", "Nói cảm giác của bạn sau khi mua", "Nói liệu nó có xứng đáng với số tiền không"]
+    },
+    sample: {
+      en: `The last thing I bought that made me happy <span class="grammar">was</span> a pair of wireless earphones. I <span class="grammar">had wanted</span> them for a long time <span class="conn">because</span> I love listening to music while studying. <span class="conn">When</span> I finally bought them, I felt very excited — it was like a small reward for myself. <span class="conn">In addition,</span> the sound quality <span class="grammar">was</span> much better than I expected. <span class="conn">In my opinion,</span> it <span class="grammar">was</span> definitely worth the money <span class="conn">because</span> I use them every single day.`,
+      vn: `Thứ cuối cùng tôi mua khiến tôi vui là một chiếc tai nghe không dây. Tôi đã muốn mua chúng từ lâu vì tôi thích nghe nhạc khi học bài. Khi cuối cùng cũng mua được, tôi cảm thấy rất hào hứng — như một phần thưởng nhỏ cho bản thân. Thêm vào đó, chất lượng âm thanh tốt hơn tôi mong đợi nhiều. Theo tôi, số tiền bỏ ra hoàn toàn xứng đáng vì tôi dùng chúng mỗi ngày.`,
+      note: { en: "Notice: 'had wanted' = past perfect (shows longer desire). 'In addition' adds a point. 'In my opinion' gives a clear personal view.", vn: "Lưu ý: 'had wanted' = quá khứ hoàn thành (thể hiện mong muốn lâu dài). 'In addition' thêm ý. 'In my opinion' đưa ra quan điểm cá nhân rõ ràng." }
+    }
+  },
+  {
+    part: "Part 2", partVN: "Phần 2",
+    en: "Describe a shopping experience that was memorable. Include what you bought, where you were, and why it was special.",
+    vn: "Mô tả một lần mua sắm đáng nhớ. Bao gồm những gì bạn mua, bạn ở đâu, và tại sao nó đặc biệt.",
+    hints: {
+      en: ["Set the scene – where and when", "Describe what you bought", "Explain the feeling and why it was special"],
+      vn: ["Thiết lập bối cảnh – ở đâu và khi nào", "Mô tả những gì bạn mua", "Giải thích cảm xúc và lý do nó đặc biệt"]
+    },
+    sample: {
+      en: `I would like to talk about a memorable shopping experience I <span class="grammar">had</span> about two years ago. I <span class="grammar">was visiting</span> a traditional market in my city with my mother. <span class="conn">At that time,</span> I bought a handmade scarf from an elderly woman who <span class="grammar">had been making</span> them for over thirty years. What made it special <span class="grammar">was</span> not just the scarf itself, but the story behind it. The woman explained how she <span class="grammar">used to</span> sell her products only at the market, but now her daughter also sells them online. <span class="conn">As a result,</span> their small business <span class="grammar">has grown</span> a lot. <span class="conn">Overall,</span> it <span class="grammar">was</span> a touching experience that showed me how <span class="vocab">local markets</span> can support real people and families.`,
+      vn: `Tôi muốn kể về một lần mua sắm đáng nhớ cách đây khoảng hai năm. Tôi đang đến thăm một khu chợ truyền thống trong thành phố cùng mẹ. Lúc đó, tôi mua một chiếc khăn handmade từ một bà cụ đã làm nghề này hơn ba mươi năm. Điều khiến nó đặc biệt không chỉ là chiếc khăn, mà còn là câu chuyện đằng sau đó. Bà kể rằng ngày trước bà chỉ bán ở chợ, nhưng giờ con gái bà cũng bán online. Kết quả là, công việc kinh doanh nhỏ của họ đã phát triển hơn nhiều. Nhìn chung, đó là một trải nghiệm cảm động cho tôi thấy chợ địa phương có thể hỗ trợ những con người và gia đình thực sự.`,
+      note: { en: "Notice: Uses 'used to' for past habits. 'As a result' for cause-effect. 'has grown' = present perfect showing change. Good story structure: scene → event → reflection.", vn: "Lưu ý: Dùng 'used to' cho thói quen quá khứ. 'As a result' cho nhân quả. 'has grown' = hiện tại hoàn thành thể hiện sự thay đổi. Cấu trúc câu chuyện tốt: bối cảnh → sự kiện → suy ngẫm." }
+    }
+  },
+  {
+    part: "Part 3", partVN: "Phần 3",
+    en: "Do you think people are too materialistic nowadays?",
+    vn: "Bạn có nghĩ người ta ngày nay quá coi trọng vật chất không?",
+    hints: {
+      en: ["Define materialism briefly", "Give a reason why this happens (advertising, social media)", "Balance your view with a counter-argument"],
+      vn: ["Định nghĩa ngắn gọn về chủ nghĩa vật chất", "Đưa ra lý do tại sao điều này xảy ra (quảng cáo, mạng xã hội)", "Cân bằng quan điểm với một lập luận phản bác"]
+    },
+    sample: {
+      en: `<span class="conn">In my opinion,</span> many people <span class="grammar">have become</span> more <span class="vocab">materialistic</span> in recent years, <span class="conn">especially</span> among younger generations. I think this <span class="grammar">is</span> partly <span class="conn">because</span> social media shows us images of luxury products and expensive lifestyles constantly. <span class="conn">As a result,</span> people feel pressure to buy things to fit in or to show their social status. <span class="conn">However,</span> I do not think everyone <span class="grammar">is</span> like this. Some people are actually becoming more aware of <span class="vocab">consumerism</span> and choosing to buy less and buy better. <span class="conn">On the whole,</span> I believe that <span class="vocab">advertising</span> and social media <span class="grammar">have played</span> a big role in making people more focused on possessions.`,
+      vn: `Theo tôi, nhiều người đã trở nên coi trọng vật chất hơn trong những năm gần đây, đặc biệt ở thế hệ trẻ. Tôi nghĩ điều này một phần là do mạng xã hội liên tục hiển thị hình ảnh về sản phẩm xa xỉ và lối sống đắt tiền. Kết quả là, mọi người cảm thấy áp lực phải mua đồ để hòa nhập hoặc thể hiện địa vị xã hội. Tuy nhiên, tôi không nghĩ tất cả mọi người đều như vậy. Một số người thực sự ngày càng ý thức hơn về chủ nghĩa tiêu thụ và chọn cách mua ít hơn nhưng chất lượng hơn. Nhìn chung, tôi tin rằng quảng cáo và mạng xã hội đã đóng vai trò lớn trong việc khiến người ta chú trọng vật chất hơn.`,
+      note: { en: "Notice: Gives opinion → reason → counter-argument → conclusion. Uses 'have become' and 'have played' (present perfect). Good vocabulary: materialistic, consumerism, advertising.", vn: "Lưu ý: Đưa ý kiến → lý do → phản bác → kết luận. Dùng 'have become' và 'have played' (hiện tại hoàn thành). Từ vựng tốt: materialistic, consumerism, advertising." }
+    }
+  },
+  {
+    part: "Part 3", partVN: "Phần 3",
+    en: "How has online shopping changed people's habits?",
+    vn: "Mua sắm online đã thay đổi thói quen của người ta như thế nào?",
+    hints: {
+      en: ["Compare past vs present shopping", "Mention convenience and 24/7 access", "Talk about any downsides (impulse buying, packaging waste)"],
+      vn: ["So sánh mua sắm ngày xưa và bây giờ", "Đề cập đến sự tiện lợi và truy cập 24/7", "Nói về mặt tiêu cực (mua bốc đồng, rác thải bao bì)"]
+    },
+    sample: {
+      en: `<span class="conn">In general,</span> online shopping <span class="grammar">has completely changed</span> the way people spend their money. People <span class="grammar">used to</span> have to visit physical stores during opening hours, but now they can shop at any time of the day or night. <span class="conn">As a result,</span> shopping <span class="grammar">has become</span> much more <span class="vocab">convenient</span>. <span class="conn">Moreover,</span> <span class="vocab">e-commerce</span> platforms offer a much wider range of products than any single shop could provide. <span class="conn">However,</span> there are some downsides too. For example, <span class="vocab">impulse buying</span> <span class="grammar">has increased</span> <span class="conn">because</span> it is so easy to click and pay. <span class="conn">In addition,</span> online shopping creates a lot of <span class="vocab">packaging waste</span>, which <span class="grammar">is</span> not good for the environment.`,
+      vn: `Nhìn chung, mua sắm online đã thay đổi hoàn toàn cách mọi người chi tiêu. Ngày trước người ta phải đến cửa hàng trong giờ mở cửa, nhưng giờ họ có thể mua sắm bất kỳ lúc nào trong ngày hay đêm. Kết quả là, mua sắm trở nên tiện lợi hơn nhiều. Hơn nữa, các nền tảng thương mại điện tử cung cấp phạm vi sản phẩm rộng hơn nhiều so với bất kỳ cửa hàng nào. Tuy nhiên, cũng có một số mặt tiêu cực. Ví dụ, mua sắm bốc đồng đã tăng lên vì chỉ cần click và thanh toán là xong. Thêm vào đó, mua sắm online tạo ra nhiều rác thải bao bì, không tốt cho môi trường.`,
+      note: { en: "Notice: 'used to' compares past and present. Present perfect 'has changed / has become / has increased' shows ongoing effects. Good structure: positive points then balance with negatives.", vn: "Lưu ý: 'used to' so sánh quá khứ và hiện tại. Hiện tại hoàn thành 'has changed / has become / has increased' thể hiện tác động tiếp diễn. Cấu trúc tốt: điểm tích cực rồi cân bằng với tiêu cực." }
+    }
+  },
+  {
+    part: "Part 3", partVN: "Phần 3",
+    en: "What are the advantages of shopping in local markets rather than supermarkets?",
+    vn: "Ưu điểm của việc mua sắm ở chợ địa phương thay vì siêu thị là gì?",
+    hints: {
+      en: ["Fresh, seasonal produce", "Support local businesses and farmers", "Community feeling and cultural experience"],
+      vn: ["Sản phẩm tươi theo mùa", "Hỗ trợ doanh nghiệp và nông dân địa phương", "Cảm giác cộng đồng và trải nghiệm văn hóa"]
+    },
+    sample: {
+      en: `<span class="conn">In my view,</span> <span class="vocab">local markets</span> offer several advantages over supermarkets. <span class="conn">First of all,</span> the produce <span class="grammar">is</span> usually fresher <span class="conn">because</span> it comes directly from local farmers without going through a long supply chain. <span class="conn">Secondly,</span> when people shop at local markets, they <span class="grammar">are supporting</span> small businesses and helping families in their community. <span class="conn">Furthermore,</span> local markets often have a unique atmosphere — you can meet the sellers, bargain for better prices, and experience local culture firsthand. <span class="conn">On the other hand,</span> supermarkets <span class="grammar">are</span> more organised and offer more variety. <span class="conn">However,</span> I personally believe that the community feeling and the quality of fresh food make local markets the better choice for everyday shopping.`,
+      vn: `Theo tôi, chợ địa phương có nhiều ưu điểm hơn siêu thị. Trước hết, sản phẩm thường tươi hơn vì đến thẳng từ nông dân địa phương, không qua chuỗi cung ứng dài. Thứ hai, khi mua sắm ở chợ địa phương, mọi người đang hỗ trợ doanh nghiệp nhỏ và giúp đỡ các gia đình trong cộng đồng. Hơn nữa, chợ địa phương thường có bầu không khí độc đáo — bạn có thể gặp người bán, mặc cả giá tốt hơn, và trải nghiệm văn hóa địa phương trực tiếp. Mặt khác, siêu thị được tổ chức tốt hơn và đa dạng hơn. Tuy nhiên, cá nhân tôi tin rằng cảm giác cộng đồng và chất lượng thực phẩm tươi khiến chợ địa phương là lựa chọn tốt hơn cho mua sắm hàng ngày.`,
+      note: { en: "Notice: Uses a clear list structure: 'First of all → Secondly → Furthermore'. Ends with a personal conclusion. Connector 'On the other hand' acknowledges the opposite view fairly.", vn: "Lưu ý: Dùng cấu trúc liệt kê rõ ràng: 'First of all → Secondly → Furthermore'. Kết thúc bằng kết luận cá nhân. 'On the other hand' thừa nhận quan điểm đối lập một cách công bằng." }
+    }
+  },
+  {
+    part: "Part 3", partVN: "Phần 3",
+    en: "Some people say advertising makes us buy things we do not need. Do you agree?",
+    vn: "Một số người nói rằng quảng cáo khiến chúng ta mua những thứ không cần thiết. Bạn có đồng ý không?",
+    hints: {
+      en: ["Explain how advertising works (emotional appeal, FOMO)", "Give an example of impulse buying", "Mention how media literacy can help"],
+      vn: ["Giải thích cách quảng cáo hoạt động (sức hút cảm xúc, sợ bỏ lỡ)", "Đưa ra ví dụ về mua sắm bốc đồng", "Đề cập đến cách hiểu biết về truyền thông có thể giúp ích"]
+    },
+    sample: {
+      en: `<span class="conn">To some extent,</span> I agree that <span class="vocab">advertising</span> can push people to buy things they do not really need. <span class="vocab">Advertising</span> often uses emotional <span class="vocab">persuasion</span> — it makes us feel that we need a product to be happy, successful, or popular. <span class="conn">For example,</span> many people buy the latest smartphone not <span class="conn">because</span> their old one is broken, but <span class="conn">because</span> advertisements make them feel their old phone is no longer good enough. <span class="conn">As a result,</span> <span class="vocab">impulse buying</span> <span class="grammar">has become</span> a common problem, especially during online sales. <span class="conn">However,</span> I do not think we should blame <span class="vocab">advertising</span> completely. <span class="conn">In my opinion,</span> if people learn to think critically about what they see, they <span class="grammar">can</span> make smarter choices.`,
+      vn: `Ở một mức độ nào đó, tôi đồng ý rằng quảng cáo có thể thúc đẩy mọi người mua những thứ họ không thực sự cần. Quảng cáo thường dùng sức thuyết phục cảm xúc — khiến chúng ta cảm thấy cần sản phẩm đó để hạnh phúc, thành công hay được yêu thích. Ví dụ, nhiều người mua điện thoại mới nhất không phải vì chiếc cũ hỏng, mà vì quảng cáo khiến họ cảm thấy điện thoại cũ không còn đủ tốt. Kết quả là, mua sắm bốc đồng đã trở thành vấn đề phổ biến, đặc biệt trong các đợt sale online. Tuy nhiên, tôi không cho rằng nên đổ lỗi hoàn toàn cho quảng cáo. Theo tôi, nếu mọi người học cách suy nghĩ phê phán về những gì họ thấy, họ có thể đưa ra quyết định thông minh hơn.`,
+      note: { en: "Notice: 'To some extent' shows a balanced start — not fully agreeing. Uses a real-life example (smartphones). 'However' and 'In my opinion' introduce the counter-view and conclusion.", vn: "Lưu ý: 'To some extent' thể hiện sự cân bằng khi bắt đầu — không đồng ý hoàn toàn. Dùng ví dụ thực tế (điện thoại thông minh). 'However' và 'In my opinion' đưa ra quan điểm trái chiều và kết luận." }
+    }
+  }
+];
+
+const VOCAB_TOPICS = {
+  "Globalization": {
+    icon: "🌐",
+    words: [
+      { word: "globalization", phonetic: "/ˌɡloʊ.bəl.aɪˈzeɪ.ʃən/", meaning: "the process by which world economies, cultures and societies connect", vn: "toàn cầu hóa", example: "Globalization has made international brands available in every country." },
+      { word: "multinational", phonetic: "/ˌmʌl.tiˈnæʃ.ən.əl/", meaning: "a company that operates in many different countries", vn: "đa quốc gia", example: "Multinational companies like Apple sell products all over the world." },
+      { word: "import/export", phonetic: "/ˈɪm.pɔːt / ˈek.spɔːt/", meaning: "buying goods from / selling goods to another country", vn: "nhập khẩu/xuất khẩu", example: "Vietnam exports a lot of clothing to Western countries." }
+    ]
+  },
+  "Materialism": {
+    icon: "💎",
+    words: [
+      { word: "materialistic", phonetic: "/məˌtɪər.i.əˈlɪs.tɪk/", meaning: "caring too much about money and possessions", vn: "chú trọng vật chất", example: "A materialistic person might judge others by the brands they wear." },
+      { word: "consumerism", phonetic: "/kənˈsjuː.mər.ɪ.z(ə)m/", meaning: "the idea that buying things is very important and good", vn: "chủ nghĩa tiêu thụ", example: "Consumerism is often blamed for increasing waste and debt." },
+      { word: "status symbol", phonetic: "/ˈsteɪ.təs ˌsɪm.bəl/", meaning: "something you own that shows your wealth or social position", vn: "biểu tượng địa vị", example: "Luxury cars are often used as status symbols." }
+    ]
+  },
+  "Online Shopping": {
+    icon: "🛒",
+    words: [
+      { word: "e-commerce", phonetic: "/ˈiːˌkɒm.ɜːs/", meaning: "buying and selling goods using the internet", vn: "thương mại điện tử", example: "E-commerce platforms like Shopee have changed how people shop in Asia." },
+      { word: "impulse buying", phonetic: "/ˈɪm.pʌls ˌbaɪ.ɪŋ/", meaning: "buying something without planning to, often because of emotion", vn: "mua sắm bốc đồng", example: "Impulse buying is common during online flash sales." },
+      { word: "convenience", phonetic: "/kənˈviː.ni.əns/", meaning: "the quality of being easy and not needing much effort", vn: "sự tiện lợi", example: "The convenience of online shopping saves people a lot of time." }
+    ]
+  },
+  "Advertising": {
+    icon: "📣",
+    words: [
+      { word: "persuasion", phonetic: "/pəˈsweɪ.ʒən/", meaning: "convincing someone to do something or believe something", vn: "sự thuyết phục", example: "Advertising uses emotional persuasion to attract customers." },
+      { word: "target audience", phonetic: "/ˈtɑː.ɡɪt ˌɔː.di.əns/", meaning: "the group of people a company wants to reach with its ads", vn: "đối tượng mục tiêu", example: "Social media companies help businesses reach their target audience quickly." },
+      { word: "brand loyalty", phonetic: "/brænd ˈlɔɪ.əl.ti/", meaning: "always choosing the same brand because you trust or like it", vn: "lòng trung thành với nhãn hiệu", example: "Apple has built strong brand loyalty among young people." }
+    ]
+  },
+  "Environment": {
+    icon: "🌿",
+    words: [
+      { word: "sustainable", phonetic: "/səˈsteɪ.nə.bəl/", meaning: "not harming the environment; able to continue long-term", vn: "bền vững", example: "Some shoppers prefer sustainable products made from recycled materials." },
+      { word: "packaging waste", phonetic: "/ˈpæk.ɪ.dʒɪŋ weɪst/", meaning: "garbage created from boxes and wrapping of products", vn: "rác thải bao bì", example: "Online shopping creates a lot of packaging waste from cardboard boxes." },
+      { word: "carbon footprint", phonetic: "/ˈkɑː.bən ˌfʊt.prɪnt/", meaning: "the amount of CO2 produced by a person or activity", vn: "dấu chân carbon", example: "Fast fashion has a high carbon footprint due to shipping and production." }
+    ]
+  },
+  "Markets vs Malls": {
+    icon: "🏪",
+    words: [
+      { word: "local market", phonetic: "/ˈloʊ.kəl ˈmɑː.kɪt/", meaning: "a small market where local people sell their products", vn: "chợ địa phương", example: "Local markets offer fresh vegetables at lower prices than supermarkets." },
+      { word: "browsing", phonetic: "/ˈbraʊ.zɪŋ/", meaning: "looking at products without a plan to buy anything specific", vn: "lướt xem hàng hóa", example: "Many people enjoy browsing through shopping malls as a leisure activity." },
+      { word: "retail therapy", phonetic: "/ˈriː.teɪl ˌθer.ə.pi/", meaning: "shopping to make yourself feel better when you are stressed", vn: "mua sắm để giải tỏa cảm xúc", example: "Some people use retail therapy to deal with stress, which can become a bad habit." }
+    ]
   }
 };
-(async()=>{
-  const r = await window.dataSdk.init(dataHandler);
-  if(!r.isOk) console.error('Data SDK init failed');
-})();
 
-async function saveProgress() {
-  const obj = {
-    type:'progress',
-    vocab_score: localScores.vocab_score,
-    grammar_score: localScores.grammar_score,
-    pronunciation_done: localScores.pronunciation_done,
-    practice_count: localScores.practice_count,
-    last_updated: new Date().toISOString()
-  };
-  if(progressData) {
-    const updated = {...progressData,...obj};
-    const r = await window.dataSdk.update(updated);
-    if(!r.isOk) console.error('Update failed');
-  } else {
-    const r = await window.dataSdk.create(obj);
-    if(!r.isOk) console.error('Create failed');
+const GRAMMAR_POINTS = [
+  {
+    id: "present-perfect",
+    label: { en: "Present Perfect", vn: "Thì Hiện Tại Hoàn Thành" },
+    formula: "has/have + past participle",
+    explain: { en: "Use to talk about experiences or recent changes without a specific time.", vn: "Dùng để nói về kinh nghiệm hoặc những thay đổi gần đây không có thời điểm cụ thể." },
+    examples: [
+      { en: "Online shopping <span class='highlight-green'>has changed</span> the way people spend their money.", vn: "Mua sắm trực tuyến <span class='highlight-green'>đã thay đổi</span> cách mọi người chi tiêu." },
+      { en: "Many brands <span class='highlight-green'>have moved</span> their business online in recent years.", vn: "Nhiều thương hiệu <span class='highlight-green'>đã chuyển</span> kinh doanh lên mạng trong những năm gần đây." }
+    ],
+    exercise: {
+      type: "error-correct",
+      items: [
+        { wrong: "Shopping has became more popular.", correct: "Shopping has become more popular.", hint: "Become → become (irregular verb, not 'became')" },
+        { wrong: "She have bought three dresses today.", correct: "She has bought three dresses today.", hint: "She (singular) → has, not have" }
+      ]
+    }
+  },
+  {
+    id: "future",
+    label: { en: "Future (will / going to)", vn: "Tương Lai (will / going to)" },
+    formula: "will + base verb | am/is/are + going to + base verb",
+    explain: { en: "'Will' for predictions; 'going to' for plans. Both work for IELTS speaking.", vn: "'Will' để dự đoán; 'going to' cho kế hoạch. Cả hai đều phù hợp cho IELTS nói." },
+    examples: [
+      { en: "In the future, most shopping <span class='highlight-blue'>will be</span> done online.", vn: "Trong tương lai, hầu hết việc mua sắm <span class='highlight-blue'>sẽ được</span> thực hiện trực tuyến." },
+      { en: "Governments <span class='highlight-blue'>are going to</span> introduce stricter rules on advertising.", vn: "Chính phủ <span class='highlight-blue'>sẽ</span> giới thiệu các quy tắc quảng cáo chặt chẽ hơn." }
+    ],
+    exercise: {
+      type: "sentence-build",
+      items: [
+        { words: ["Traditional", "shops", "will", "probably", "disappear", "eventually"], answer: "Traditional shops will probably disappear eventually." },
+        { words: ["People", "are", "going", "to", "shop", "more", "sustainably"], answer: "People are going to shop more sustainably." }
+      ]
+    }
+  },
+  {
+    id: "used-to",
+    label: { en: "Used to", vn: "Thói Quen Trong Quá Khứ" },
+    formula: "used to + base verb",
+    explain: { en: "Describes habits or situations that were true in the past but are NOT true now.", vn: "Mô tả thói quen hoặc tình huống đã từng đúng trong quá khứ nhưng KHÔNG còn đúng nữa." },
+    examples: [
+      { en: "People <span class='highlight-green'>used to</span> buy everything at local markets before malls existed.", vn: "Mọi người <span class='highlight-green'>thường</span> mua mọi thứ ở chợ địa phương trước khi có trung tâm thương mại." },
+      { en: "My parents <span class='highlight-green'>used to</span> spend hours bargaining at the market.", vn: "Bố mẹ tôi <span class='highlight-green'>thường</span> mất hàng giờ để mặc cả ở chợ." }
+    ],
+    exercise: {
+      type: "error-correct",
+      items: [
+        { wrong: "People use to shop differently.", correct: "People used to shop differently.", hint: "'use to' is incorrect – always say 'used to'" },
+        { wrong: "She used to buys things at the market.", correct: "She used to buy things at the market.", hint: "After 'used to', always use the base verb (not 'buys')" }
+      ]
+    }
+  },
+  {
+    id: "generalizing",
+    label: { en: "Generalizing Phrases", vn: "Cụm Từ Khái Quát" },
+    formula: "In general, / On the whole, / Most people... / A lot of...",
+    explain: { en: "Use these phrases at the start of sentences to talk about trends or opinions without being too specific.", vn: "Dùng các cụm từ này ở đầu câu để nói về xu hướng hoặc ý kiến mà không quá cụ thể." },
+    examples: [
+      { en: "<span class='highlight-green'>In general</span>, younger people prefer online shopping to visiting physical stores.", vn: "<span class='highlight-green'>Nhìn chung</span>, người trẻ thích mua sắm trực tuyến hơn là đến cửa hàng thực tế." },
+      { en: "<span class='highlight-green'>On the whole</span>, advertising has a negative effect on how we spend our money.", vn: "<span class='highlight-green'>Nhìn tổng thể</span>, quảng cáo có ảnh hưởng tiêu cực đến cách chúng ta chi tiêu." }
+    ],
+    exercise: {
+      type: "sentence-build",
+      items: [
+        { words: ["In", "general", "people", "are", "buying", "more", "than", "they", "need"], answer: "In general, people are buying more than they need." },
+        { words: ["On", "the", "whole", "online", "shopping", "is", "more", "convenient"], answer: "On the whole, online shopping is more convenient." }
+      ]
+    }
+  },
+  {
+    id: "cause-effect",
+    label: { en: "Cause & Effect", vn: "Nguyên Nhân & Kết Quả" },
+    formula: "because / as a result / therefore / this leads to / due to",
+    explain: { en: "Connect your ideas by showing WHY something happens and WHAT happens as a result.", vn: "Kết nối ý tưởng bằng cách cho thấy TẠI SAO điều gì đó xảy ra và KẾT QUẢ là gì." },
+    examples: [
+      { en: "People buy more online <span class='highlight-blue'>because</span> it is convenient and fast.", vn: "Mọi người mua hàng trực tuyến nhiều hơn <span class='highlight-blue'>vì</span> nó tiện lợi và nhanh chóng." },
+      { en: "Heavy advertising targets children. <span class='highlight-blue'>As a result</span>, parents often feel pressured to buy toys.", vn: "Quảng cáo nặng nề nhắm vào trẻ em. <span class='highlight-blue'>Kết quả là</span>, cha mẹ thường cảm thấy áp lực phải mua đồ chơi." }
+    ],
+    exercise: {
+      type: "error-correct",
+      items: [
+        { wrong: "People shop more, due to they have more money.", correct: "People shop more because they have more money.", hint: "'due to' is followed by a noun, not a clause. Use 'because' before subject + verb." },
+        { wrong: "Online shopping is popular, therefore it is cheap.", correct: "Online shopping is popular because it is cheap.", hint: "'Therefore' shows result, not reason. Switch to 'because'." }
+      ]
+    }
   }
-}
-
-// ===== LANGUAGE =====
-function toggleLang(){
-  lang = lang==='en'?'vn':'en';
-  document.getElementById('langLabel').textContent = lang==='en'?'VN':'EN';
-  document.querySelectorAll('[data-en]').forEach(el=>{
-    el.textContent = el.getAttribute('data-'+lang);
-  });
-  renderCurrentSection();
-}
-function t(en,vn){ return lang==='en'?en:vn; }
-
-// ===== TABS =====
-function switchTab(i){
-  document.querySelectorAll('#tabBar .tab-btn').forEach((b,idx)=>b.classList.toggle('active',idx===i));
-  for(let s=0;s<6;s++){
-    document.getElementById('sec'+s).classList.toggle('section-hidden',s!==i);
-  }
-  currentTab=i;
-  renderCurrentSection();
-}
-function renderCurrentSection(){
-  [renderQuestions,renderVocab,renderGrammar,renderPronunciation,renderPractice,renderProgress][currentTab]();
-}
-
-// ===== TTS =====
-function speak(text){
-  if('speechSynthesis' in window){
-    window.speechSynthesis.cancel();
-    const u=new SpeechSynthesisUtterance(text);
-    u.lang='en-US'; u.rate=0.85;
-    window.speechSynthesis.speak(u);
-  }
-}
-
-// ===== TOAST =====
-function showToast(msg,color='#22c55e'){
-  const d=document.createElement('div');
-  d.className='toast';d.style.background=color;d.textContent=msg;
-  document.body.appendChild(d);
-  setTimeout(()=>d.remove(),2500);
-}
-
-// ===== DATA =====
-const questions = [
-  {en:"Do you think people are too materialistic nowadays?", vn:"Bạn có nghĩ mọi người ngày nay quá vật chất không?",
-   hints:{en:["Think about what people value: things vs experiences","Consider advertising influence","Compare past and present"],vn:["Nghĩ về giá trị: vật chất vs trải nghiệm","Ảnh hưởng của quảng cáo","So sánh quá khứ và hiện tại"]}},
-  {en:"How has online shopping changed people's habits?",vn:"Mua sắm trực tuyến đã thay đổi thói quen của mọi người như thế nào?",
-   hints:{en:["Convenience and speed","Less visiting physical stores","Comparing prices easily"],vn:["Thuận tiện và nhanh chóng","Ít đến cửa hàng hơn","Dễ so sánh giá"]}},
-  {en:"What are the advantages of shopping in local markets?",vn:"Lợi ích của việc mua sắm ở chợ địa phương là gì?",
-   hints:{en:["Fresh products","Supporting local businesses","Social interaction"],vn:["Sản phẩm tươi","Hỗ trợ kinh doanh địa phương","Giao tiếp xã hội"]}},
-  {en:"Do you think shopping malls will disappear in the future?",vn:"Bạn có nghĩ trung tâm thương mại sẽ biến mất trong tương lai không?",
-   hints:{en:["Online shopping growth","Malls as entertainment","Some people prefer trying before buying"],vn:["Mua sắm online tăng","Trung tâm thương mại như giải trí","Một số người thích thử trước khi mua"]}},
-  {en:"How does advertising influence what people buy?",vn:"Quảng cáo ảnh hưởng đến việc mua sắm của mọi người như thế nào?",
-   hints:{en:["Creates desire for things we don't need","Celebrity endorsements","Social media ads"],vn:["Tạo mong muốn cho thứ không cần","Người nổi tiếng quảng cáo","Quảng cáo mạng xã hội"]}},
-  {en:"Is it better to save money or spend it?",vn:"Tiết kiệm tiền hay tiêu tiền thì tốt hơn?",
-   hints:{en:["Balance is important","Saving for emergencies","Spending on experiences"],vn:["Cân bằng quan trọng","Tiết kiệm cho khẩn cấp","Chi tiêu cho trải nghiệm"]}}
 ];
 
-const vocabData = [
-  {cat:{en:"Materialism",vn:"Chủ nghĩa vật chất"},words:[
-    {word:"materialistic",meaning:"caring too much about money and things",vn:"vật chất, ham vật chất",ex:"Some people are very materialistic and always want new things."},
-    {word:"consumer culture",meaning:"a way of life focused on buying things",vn:"văn hóa tiêu dùng",ex:"Consumer culture encourages people to buy more than they need."},
-    {word:"brand-conscious",meaning:"caring a lot about famous brand names",vn:"chú trọng thương hiệu",ex:"Young people are often brand-conscious when buying clothes."}
-  ]},
-  {cat:{en:"Online Shopping",vn:"Mua sắm trực tuyến"},words:[
-    {word:"convenient",meaning:"easy and saves time",vn:"thuận tiện",ex:"Online shopping is very convenient because you can buy from home."},
-    {word:"delivery service",meaning:"bringing goods to your home",vn:"dịch vụ giao hàng",ex:"Most online stores offer fast delivery service."},
-    {word:"compare prices",meaning:"look at different prices to find the best",vn:"so sánh giá",ex:"I always compare prices before buying anything online."}
-  ]},
-  {cat:{en:"Advertising",vn:"Quảng cáo"},words:[
-    {word:"influence",meaning:"have an effect on someone's decisions",vn:"ảnh hưởng",ex:"Advertising can influence people to buy things they don't need."},
-    {word:"promote",meaning:"to advertise or support something",vn:"quảng bá",ex:"Companies promote their products on social media."},
-    {word:"target audience",meaning:"the group of people a product is made for",vn:"đối tượng mục tiêu",ex:"The target audience for this ad is young women."}
-  ]},
-  {cat:{en:"Markets & Environment",vn:"Chợ & Môi trường"},words:[
-    {word:"sustainable",meaning:"good for the environment long-term",vn:"bền vững",ex:"Buying sustainable products helps protect the environment."},
-    {word:"local produce",meaning:"food grown near where you live",vn:"nông sản địa phương",ex:"Local produce is often fresher than imported food."},
-    {word:"bargain",meaning:"something bought at a low price",vn:"mặc cả / món hời",ex:"I found a great bargain at the market today."}
-  ]}
+const PRONUN_DATA = {
+  stress: [
+    {
+      label: { en: "Sentence Stress – Shopping Topic", vn: "Trọng Âm Câu – Chủ Đề Mua Sắm" },
+      sentences: [
+        { words: [["Online", false], ["shopping", false], ["has", false], ["completely", true], ["changed", true], ["the", false], ["way", true], ["we", false], ["spend", true], ["our", false], ["money", true]], note: { en: "Stress content words: adverbs, verbs, nouns", vn: "Nhấn vào từ có nội dung: trạng từ, động từ, danh từ" } },
+        { words: [["People", true], ["are", false], ["becoming", true], ["more", true], ["materialistic", true], ["these", false], ["days", true]], note: { en: "Key adjectives and nouns carry the most stress", vn: "Tính từ và danh từ quan trọng mang nhiều trọng âm nhất" } }
+      ]
+    }
+  ],
+  wordStress: [
+    { noun: { syllables: ["AD", "ver", "tise", "ment"], stress: 0 }, verb: { syllables: ["ad", "VER", "tise"], stress: 1 }, note: { en: "In noun form, stress falls on first syllable", vn: "Ở dạng danh từ, trọng âm rơi vào âm tiết đầu" } },
+    { noun: { syllables: ["IN", "crease"], stress: 0 }, verb: { syllables: ["in", "CREASE"], stress: 1 }, note: { en: "'Increase' (noun) vs 'increase' (verb) – stress shifts!", vn: "'Increase' (danh từ) vs 'increase' (động từ) – trọng âm thay đổi!" } },
+    { noun: { syllables: ["PRO", "gress"], stress: 0 }, verb: { syllables: ["pro", "GRESS"], stress: 1 }, note: { en: "'Progress' as noun vs verb – same pattern", vn: "'Progress' ở dạng danh từ và động từ – cùng quy tắc" } }
+  ],
+  intonation: [
+    { type: "rising", arrow: "↗️", label: { en: "Rising – Yes/No Questions", vn: "Lên – Câu Hỏi Có/Không" }, example: "Do you enjoy shopping?" },
+    { type: "falling", arrow: "↘️", label: { en: "Falling – Statements & Opinions", vn: "Xuống – Câu Trần Thuật & Ý Kiến" }, example: "I think online shopping is very convenient." },
+    { type: "fall-rise", arrow: "↘️↗️", label: { en: "Fall-Rise – Partial Agreement", vn: "Xuống-Lên – Đồng ý Một Phần" }, example: "That might be true, but there are downsides too." }
+  ]
+};
+
+const PRACTICE_QUESTIONS = [
+  { en: "Do you enjoy shopping? Why or why not?", vn: "Bạn có thích mua sắm không? Tại sao?" },
+  { en: "How has online shopping changed people's habits in your country?", vn: "Mua sắm trực tuyến đã thay đổi thói quen của người dân ở đất nước bạn như thế nào?" },
+  { en: "Do you think people are too materialistic nowadays?", vn: "Bạn có nghĩ mọi người ngày nay quá coi trọng vật chất không?" },
+  { en: "What are the advantages of shopping in local markets?", vn: "Ưu điểm của việc mua sắm ở chợ địa phương là gì?" },
+  { en: "Should governments control the amount of advertising aimed at children?", vn: "Chính phủ có nên kiểm soát lượng quảng cáo nhắm vào trẻ em không?" }
 ];
 
-const grammarData = [
-  {name:{en:"Present Perfect",vn:"Thì hiện tại hoàn thành"},
-   desc:{en:"Use to talk about experiences or changes from past to now.",vn:"Dùng để nói về trải nghiệm hoặc thay đổi từ quá khứ đến bây giờ."},
-   ex:"Online shopping <b>has changed</b> the way people buy things.",
-   exercise:{type:"error",sentence:"I have went shopping online many times.",correct:"I have gone shopping online many times.",explain:{en:"Use past participle 'gone' not 'went'.",vn:"Dùng quá khứ phân từ 'gone' không phải 'went'."}}},
-  {name:{en:"Future (will / going to)",vn:"Tương lai (will / going to)"},
-   desc:{en:"Use 'will' for predictions, 'going to' for plans.",vn:"Dùng 'will' cho dự đoán, 'going to' cho kế hoạch."},
-   ex:"I think shopping malls <b>will become</b> less popular. I <b>am going to</b> buy a new phone.",
-   exercise:{type:"error",sentence:"I think online shopping will to grow in the future.",correct:"I think online shopping will grow in the future.",explain:{en:"Don't use 'to' after 'will'.",vn:"Không dùng 'to' sau 'will'."}}},
-  {name:{en:"Used to",vn:"Used to (đã từng)"},
-   desc:{en:"Use to compare past habits with present.",vn:"Dùng để so sánh thói quen quá khứ với hiện tại."},
-   ex:"People <b>used to</b> shop at markets, but now they shop online.",
-   exercise:{type:"error",sentence:"I use to go to the mall every weekend.",correct:"I used to go to the mall every weekend.",explain:{en:"Use 'used to' (past tense) not 'use to'.",vn:"Dùng 'used to' (quá khứ) không phải 'use to'."}}},
-  {name:{en:"Cause & Effect",vn:"Nguyên nhân & Kết quả"},
-   desc:{en:"Use because, so, therefore, as a result.",vn:"Dùng because, so, therefore, as a result."},
-   ex:"<b>Because</b> of advertising, people buy more things. <b>As a result</b>, they spend too much.",
-   exercise:{type:"error",sentence:"Because advertising is everywhere, so people buy more.",correct:"Because advertising is everywhere, people buy more.",explain:{en:"Don't use 'because' and 'so' together.",vn:"Không dùng 'because' và 'so' cùng lúc."}}},
-  {name:{en:"Second Conditional",vn:"Câu điều kiện loại 2"},
-   desc:{en:"Use to imagine unreal situations.",vn:"Dùng để tưởng tượng tình huống không thực."},
-   ex:"If I <b>had</b> more money, I <b>would buy</b> sustainable products.",
-   exercise:{type:"error",sentence:"If I have a lot of money, I would travel the world.",correct:"If I had a lot of money, I would travel the world.",explain:{en:"Use past tense 'had' in the if-clause.",vn:"Dùng quá khứ 'had' trong mệnh đề if."}}}
-];
+// ═══════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════
 
-const pronData = [
-  {sentence:"I think PEOPLE are TOO materialistic NOWadays.",stress:["PEOPLE","TOO","NOWadays"],
-   note:{en:"Stress content words: nouns, adjectives, adverbs",vn:"Nhấn từ nội dung: danh từ, tính từ, trạng từ"}},
-  {sentence:"Online SHOPPING has CHANGED the WAY we BUY things.",stress:["SHOPPING","CHANGED","WAY","BUY"],
-   note:{en:"Stress the key information words",vn:"Nhấn các từ mang thông tin chính"}},
-  {sentence:"I USED to shop at MARKETS, but NOW I shop ONLINE.",stress:["USED","MARKETS","NOW","ONLINE"],
-   note:{en:"Stress words that show contrast (past vs present)",vn:"Nhấn từ thể hiện sự tương phản (quá khứ vs hiện tại)"}},
-  {sentence:"ADvertising can INfluence what people BUY.",stress:["AD","IN","BUY"],
-   note:{en:"Word stress: ADvertising (stress on 1st), INfluence (stress on 1st)",vn:"Trọng âm: ADvertising (âm 1), INfluence (âm 1)"}}
-];
-
-const practiceQs = [
-  {en:"Do you prefer shopping online or in stores? Why?",vn:"Bạn thích mua sắm online hay tại cửa hàng? Tại sao?"},
-  {en:"How has shopping changed compared to the past?",vn:"Mua sắm đã thay đổi như thế nào so với trước đây?"},
-  {en:"Do you think advertising has a positive or negative effect?",vn:"Bạn nghĩ quảng cáo có tác động tích cực hay tiêu cực?"}
-];
-
-// ===== RENDER FUNCTIONS =====
-
-function renderQuestions(){
-  const sec = document.getElementById('sec0');
-  sec.innerHTML = `
-    <h2 class="font-display text-2xl font-bold mb-1">${t('💬 Speaking Questions','💬 Câu hỏi Nói')}</h2>
-    <p class="text-sm opacity-60 mb-4">${t('IELTS Speaking Part 1–3 about Shopping','IELTS Speaking Phần 1–3 về Mua sắm')}</p>
-    ${questions.map((q,i)=>`
-      <div class="card">
-        <div class="flex items-start gap-3">
-          <span class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background:var(--c-primary);color:#fff">${i+1}</span>
-          <div class="flex-1">
-            <p class="font-semibold">${q[lang]}</p>
-            ${lang==='vn'?`<p class="text-sm opacity-50 mt-1">${q.en}</p>`:''}
-            <div class="flex gap-2 mt-2">
-              <button onclick="speak('${q.en.replace(/'/g,"\\'")}')" class="btn-secondary text-xs flex items-center gap-1"><i data-lucide="volume-2" style="width:14px;height:14px"></i> ${t('Listen','Nghe')}</button>
-              <button onclick="toggleHint(${i})" class="btn-secondary text-xs flex items-center gap-1"><i data-lucide="lightbulb" style="width:14px;height:14px"></i> ${t('Hint','Gợi ý')}</button>
-            </div>
-            <div id="hint${i}" class="hint-content mt-2">
-              <ul class="text-sm space-y-1 pl-4 list-disc opacity-70">
-                ${q.hints[lang].map(h=>`<li>${h}</li>`).join('')}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    `).join('')}
-  `;
-  lucide.createIcons();
-}
-
-function toggleHint(i){
-  document.getElementById('hint'+i).classList.toggle('open');
-}
-
-// === VOCAB ===
-let vocabQuizState = {};
-function renderVocab(){
-  const sec = document.getElementById('sec1');
-  sec.innerHTML = `
-    <h2 class="font-display text-2xl font-bold mb-1">${t('📖 Vocabulary','📖 Từ vựng')}</h2>
-    <p class="text-sm opacity-60 mb-4">${t('Learn key words for Shopping topics','Học từ khóa cho chủ đề Mua sắm')}</p>
-    ${vocabData.map((cat,ci)=>`
-      <div class="mb-6">
-        <h3 class="font-bold text-lg mb-2" style="color:var(--c-primary)">${cat.cat[lang]}</h3>
-        ${cat.words.map(w=>`
-          <div class="card">
-            <div class="flex items-center justify-between mb-1">
-              <span class="font-bold text-base">${w.word}</span>
-              <button onclick="speak('${w.word}')" class="btn-secondary text-xs px-2 py-1"><i data-lucide="volume-2" style="width:12px;height:12px"></i></button>
-            </div>
-            <p class="text-sm"><span class="opacity-60">${t('Meaning','Nghĩa')}:</span> ${w.meaning}</p>
-            <p class="text-sm"><span class="opacity-60">🇻🇳</span> ${w.vn}</p>
-            <p class="text-sm mt-1 italic opacity-70">"${w.ex}"</p>
-            <button onclick="speak('${w.ex.replace(/'/g,"\\'")}')" class="text-xs mt-1 opacity-50 underline">${t('Listen to example','Nghe ví dụ')}</button>
-          </div>
-        `).join('')}
-      </div>
-    `).join('')}
-    <div class="mt-6">
-      <h3 class="font-display text-xl font-bold mb-3">${t('🧠 Mini Quiz: Match the word','🧠 Quiz nhỏ: Nối từ')}</h3>
-      <div id="vocabQuiz"></div>
-    </div>
-  `;
-  renderVocabQuiz();
-  lucide.createIcons();
-}
-
-function renderVocabQuiz(){
-  const allWords = vocabData.flatMap(c=>c.words);
-  const selected = allWords.sort(()=>Math.random()-.5).slice(0,4);
-  const meanings = selected.map(w=>w.meaning).sort(()=>Math.random()-.5);
-  vocabQuizState = {selected, answers:{}, meanings};
-
-  const container = document.getElementById('vocabQuiz');
-  if(!container)return;
-  container.innerHTML = selected.map((w,i)=>`
-    <div class="card" id="vq${i}">
-      <p class="font-bold mb-2">${w.word}</p>
-      <div class="space-y-2">
-        ${meanings.map((m,mi)=>`
-          <div class="quiz-option" onclick="checkVocabQuiz(${i},${mi},'${m.replace(/'/g,"\\'")}')">${m}</div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-}
-
-function checkVocabQuiz(qi,mi,chosen){
-  const w = vocabQuizState.selected[qi];
-  const card = document.getElementById('vq'+qi);
-  const opts = card.querySelectorAll('.quiz-option');
-  opts.forEach((o,idx)=>{
-    if(o.textContent===w.meaning) o.classList.add('correct');
-    else if(idx===mi && chosen!==w.meaning) o.classList.add('wrong');
-    o.style.pointerEvents='none';
-  });
-  if(chosen===w.meaning){
-    localScores.vocab_score = Math.min(100, localScores.vocab_score+10);
-    showToast(t('✅ Correct!','✅ Đúng rồi!'));
-    saveProgress();
-  } else {
-    showToast(t('❌ Try again next time!','❌ Lần sau nhé!'),'#ef4444');
-  }
-}
-
-// === GRAMMAR ===
-function renderGrammar(){
-  const sec = document.getElementById('sec2');
-  sec.innerHTML = `
-    <h2 class="font-display text-2xl font-bold mb-1">${t('✍️ Grammar','✍️ Ngữ pháp')}</h2>
-    <p class="text-sm opacity-60 mb-4">${t('Key structures for IELTS Speaking','Cấu trúc quan trọng cho IELTS Speaking')}</p>
-    ${grammarData.map((g,i)=>`
-      <div class="card">
-        <h3 class="font-bold text-lg mb-1" style="color:var(--c-primary)">${g.name[lang]}</h3>
-        <p class="text-sm mb-2 opacity-70">${g.desc[lang]}</p>
-        <div class="text-sm p-3 rounded-xl mb-3" style="background:var(--c-secondary)">${g.ex}</div>
-        <div class="mt-2">
-          <p class="text-sm font-semibold mb-1">${t('🔍 Find the error:','🔍 Tìm lỗi sai:')}</p>
-          <p class="text-sm italic mb-2" id="gSent${i}">"${g.exercise.sentence}"</p>
-          <div class="flex gap-2 flex-wrap" id="gBtns${i}">
-            <button onclick="showGrammarAnswer(${i})" class="btn-primary text-xs">${t('Show Answer','Xem đáp án')}</button>
-            <button onclick="speak('${g.exercise.correct.replace(/'/g,"\\'")}')" class="btn-secondary text-xs"><i data-lucide="volume-2" style="width:12px;height:12px"></i></button>
-          </div>
-          <div id="gAns${i}" class="hidden mt-2 text-sm p-3 rounded-xl" style="background:#f0fdf4;border:1px solid #22c55e">
-            <p class="font-semibold">✅ ${g.exercise.correct}</p>
-            <p class="opacity-70 mt-1">${g.exercise.explain[lang]}</p>
-          </div>
-        </div>
-      </div>
-    `).join('')}
-  `;
-  lucide.createIcons();
-}
-
-function showGrammarAnswer(i){
-  document.getElementById('gAns'+i).classList.remove('hidden');
-  localScores.grammar_score = Math.min(100, localScores.grammar_score+10);
-  saveProgress();
-}
-
-// === PRONUNCIATION ===
-let pronCompleted = new Set();
-function renderPronunciation(){
-  const sec = document.getElementById('sec3');
-  sec.innerHTML = `
-    <h2 class="font-display text-2xl font-bold mb-1">${t('🗣️ Pronunciation','🗣️ Phát âm')}</h2>
-    <p class="text-sm opacity-60 mb-4">${t('Practice sentence stress and intonation','Luyện trọng âm câu và ngữ điệu')}</p>
-    ${pronData.map((p,i)=>{
-      const stressedSentence = p.sentence.replace(/([A-Z]{2,}[a-z]*)/g, '<span class="stress-high">$1</span>');
-      return `
-      <div class="card">
-        <div class="text-lg mb-2">${stressedSentence}</div>
-        <p class="text-xs opacity-60 mb-3">💡 ${p.note[lang]}</p>
-        <div class="flex gap-2 flex-wrap">
-          <button onclick="speak('${p.sentence.replace(/'/g,"\\'")}')" class="btn-primary text-xs flex items-center gap-1">
-            <i data-lucide="play" style="width:14px;height:14px"></i> ${t('Listen','Nghe')}
-          </button>
-          <button onclick="markPronDone(${i})" class="btn-secondary text-xs flex items-center gap-1" id="pronBtn${i}">
-            <i data-lucide="check" style="width:14px;height:14px"></i> ${pronCompleted.has(i)?t('Done ✅','Xong ✅'):t('I practiced this','Tôi đã luyện')}
-          </button>
-        </div>
-      </div>`;
-    }).join('')}
-    <div class="card mt-4" style="background:var(--c-primary);color:#fff">
-      <p class="font-bold">${t('💡 Tip: Speak out loud!','💡 Mẹo: Nói to lên!')}</p>
-      <p class="text-sm opacity-80 mt-1">${t('Listen first, then repeat 3 times. Focus on the stressed words (shown in color).','Nghe trước, sau đó lặp lại 3 lần. Tập trung vào từ được nhấn (hiển thị màu).')}</p>
-    </div>
-  `;
-  lucide.createIcons();
-}
-
-function markPronDone(i){
-  pronCompleted.add(i);
-  const btn = document.getElementById('pronBtn'+i);
-  if(btn) btn.innerHTML = `<i data-lucide="check" style="width:14px;height:14px"></i> ${t('Done ✅','Xong ✅')}`;
-  localScores.pronunciation_done = Math.round((pronCompleted.size/pronData.length)*100);
-  saveProgress();
-  showToast(t('🎉 Great job!','🎉 Tuyệt vời!'));
-  lucide.createIcons();
-}
-
-// === PRACTICE ===
-const sampleAnswers = [
-  {en:"I prefer shopping online because it's more convenient. I can buy from home and compare prices easily. However, I sometimes miss going to physical stores because you can see and touch the products before buying.",vn:"Tôi thích mua sắm online hơn vì nó thuận tiện hơn. Tôi có thể mua từ nhà và dễ dàng so sánh giá. Tuy nhiên, đôi khi tôi nhớ đi đến các cửa hàng vật lý vì bạn có thể nhìn thấy và chạm vào các sản phẩm trước khi mua."},
-  {en:"Shopping has changed a lot compared to the past. In the past, people used to go to markets and shops directly. Nowadays, people can shop online anytime, anywhere. This has made shopping more convenient but also encouraged people to buy more things than they need.",vn:"Mua sắm đã thay đổi rất nhiều so với trước đây. Trước đây, mọi người thường đi đến chợ và cửa hàng trực tiếp. Ngày nay, mọi người có thể mua sắm online bất cứ lúc nào, ở bất cứ đâu. Điều này đã làm cho mua sắm trở nên thuận tiện hơn nhưng cũng khuyến khích mọi người mua nhiều thứ hơn họ cần."},
-  {en:"I think advertising has both positive and negative effects. On the one hand, it helps people learn about new products and companies. On the other hand, advertising can influence people to buy things they don't need, which is wasteful. As a result, people should be more critical when watching ads.",vn:"Tôi nghĩ quảng cáo có cả tác động tích cực và tiêu cực. Một mặt, nó giúp mọi người tìm hiểu về các sản phẩm và công ty mới. Mặt khác, quảng cáo có thể ảnh hưởng đến mọi người mua những thứ họ không cần, điều này lãng phí. Do đó, mọi người nên có cái nhìn phê phán hơn khi xem quảng cáo."}
-];
-
+let lang = 'en';
+let currentVocabTopic = Object.keys(VOCAB_TOPICS)[0];
+let activeGrammarTab = 0;
+let practiceIdx = 0;
 let practiceAnswers = {};
-function renderPractice(){
-  const sec = document.getElementById('sec4');
-  sec.innerHTML = `
-    <h2 class="font-display text-2xl font-bold mb-1">${t('🎤 Practice','🎤 Luyện tập')}</h2>
-    <p class="text-sm opacity-60 mb-4">${t('Answer these questions and get feedback','Trả lời câu hỏi và nhận phản hồi')}</p>
-    ${practiceQs.map((q,i)=>`
-      <div class="card">
-        <p class="font-bold mb-2">${q[lang]}</p>
-        ${lang==='vn'?`<p class="text-xs opacity-40 mb-2">${q.en}</p>`:''}
-        <textarea id="pAns${i}" rows="4" class="w-full p-3 rounded-xl text-sm border" style="border-color:var(--c-secondary);background:var(--c-surface)" placeholder="${t('Type your answer here...','Nhập câu trả lời...')}">${practiceAnswers[i]||''}</textarea>
-        <div class="flex gap-2 flex-wrap mt-2">
-          <button onclick="speak('${q.en.replace(/'/g,"\\'")}')" class="btn-secondary text-xs"><i data-lucide="volume-2" style="width:14px;height:14px"></i></button>
-          <button onclick="showSampleAnswer(${i})" class="btn-secondary text-xs">${t('📝 Sample Answer','📝 Mẫu trả lời')}</button>
-          <button onclick="analyzePractice(${i})" class="btn-primary text-xs">${t('Get Feedback','Nhận phản hồi')}</button>
-        </div>
-        <div id="pFeedback${i}" class="mt-3"></div>
+
+// Progress
+let progress = JSON.parse(localStorage.getItem('ielts_progress') || '{}');
+if (!progress.vocabQuizScore) progress.vocabQuizScore = 0;
+if (!progress.grammarScore) progress.grammarScore = 0;
+if (!progress.practiceCount) progress.practiceCount = 0;
+if (!progress.pronunciationDone) progress.pronunciationDone = false;
+if (!progress.grammarDone) progress.grammarDone = 0;
+saveProgress();
+
+function saveProgress() {
+  localStorage.setItem('ielts_progress', JSON.stringify(progress));
+}
+
+// ═══════════════════════════════════════════
+// LANGUAGE
+// ═══════════════════════════════════════════
+
+function setLang(l) {
+  lang = l;
+  document.getElementById('langEN').classList.toggle('active', l === 'en');
+  document.getElementById('langVN').classList.toggle('active', l === 'vn');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = l === 'en' ? el.dataset.en : el.dataset.vn;
+  });
+  // Re-render dynamic sections
+  renderQuestions();
+  renderVocab();
+  renderGrammar();
+  renderPronunciation();
+  renderPractice();
+  renderProgress();
+}
+
+function t(obj) {
+  return lang === 'vn' ? (obj.vn || obj.en) : obj.en;
+}
+
+// ═══════════════════════════════════════════
+// SECTION SWITCHING
+// ═══════════════════════════════════════════
+
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  if (id === 'progress') renderProgress();
+}
+
+// ═══════════════════════════════════════════
+// QUESTIONS
+// ═══════════════════════════════════════════
+
+function renderQuestions() {
+  const container = document.getElementById('questionsContainer');
+  container.innerHTML = '';
+  QUESTIONS.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    const speakTxt = (lang === 'vn' ? q.vn : q.en).replace(/'/g, "\\'");
+    const sampleTextEN = q.sample ? q.sample.en : '';
+    const sampleTextVN = q.sample ? q.sample.vn : '';
+    const sampleNote = q.sample ? (lang === 'vn' ? q.sample.note.vn : q.sample.note.en) : '';
+
+    card.innerHTML = `
+      <div class="q-part">${lang === 'vn' ? q.partVN : q.part}</div>
+      <div class="q-text">${lang === 'vn' ? q.vn : q.en}</div>
+      <div class="q-actions">
+        <button class="btn btn-secondary btn-sm" onclick="toggleHint(${i})">
+          💡 <span>${lang === 'vn' ? 'Gợi Ý' : 'Hint'}</span>
+        </button>
+        <button class="btn btn-secondary btn-sm" onclick="speakText('${speakTxt}')">
+          🔊 <span>${lang === 'vn' ? 'Nghe' : 'Listen'}</span>
+        </button>
+        ${q.sample ? `<button class="btn btn-secondary btn-sm" onclick="toggleSample(${i})" style="color:var(--accent4);border-color:var(--accent4)">
+          📝 <span>${lang === 'vn' ? 'Câu Mẫu' : 'Sample Answer'}</span>
+        </button>` : ''}
+        <button class="btn btn-primary btn-sm" onclick="goToPractice(${i})">
+          🎤 <span>${lang === 'vn' ? 'Luyện Ngay' : 'Practice'}</span>
+        </button>
       </div>
-    `).join('')}
-  `;
-  lucide.createIcons();
+      <div class="hint-box" id="hint-${i}">
+        <div class="bold mb-8">💡 ${lang === 'vn' ? 'Ý tưởng gợi ý:' : 'Ideas to help you:'}</div>
+        <ul>${q.hints[lang === 'vn' ? 'vn' : 'en'].map(h => `<li>${h}</li>`).join('')}</ul>
+      </div>
+      ${q.sample ? `
+      <div class="sample-box" id="sample-${i}">
+        <div class="sample-label">
+          📝 ${lang === 'vn' ? 'Câu trả lời mẫu' : 'Sample Answer'}
+          <span class="band-badge">Band 5–6</span>
+          <button onclick="speakSample(${i})" class="btn-icon" style="padding:4px 8px;font-size:12px;margin-left:4px" title="Listen">🔊</button>
+          <button onclick="toggleSampleVN(${i})" class="btn-icon" style="padding:4px 8px;font-size:12px" title="Vietnamese translation">🇻🇳</button>
+        </div>
+        <div class="sample-text" id="sample-text-${i}">${sampleTextEN}</div>
+        <div class="sample-vn" id="sample-vn-${i}">${sampleTextVN}</div>
+        <div class="sample-legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#D8F3DC"></div> ${lang === 'vn' ? 'Liên từ' : 'Connectors'}</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#DBEAFE"></div> ${lang === 'vn' ? 'Từ vựng' : 'Vocabulary'}</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#EDE9FE"></div> ${lang === 'vn' ? 'Ngữ pháp' : 'Grammar'}</div>
+        </div>
+        <div style="margin-top:10px;background:var(--warn-light);border-radius:8px;padding:10px;border-left:3px solid var(--warn)">
+          <div style="font-size:11px;font-weight:700;color:var(--warn);margin-bottom:4px">💡 ${lang === 'vn' ? 'Giải thích' : 'Teacher Note'}</div>
+          <div style="font-size:12px;color:var(--text)">${sampleNote}</div>
+        </div>
+      </div>` : ''}
+    `;
+    container.appendChild(card);
+  });
 }
 
-function showSampleAnswer(i){
-  const textarea = document.getElementById('pAns'+i);
-  const sample = sampleAnswers[i][lang];
-  textarea.value = sample;
-  textarea.style.borderColor = '#22c55e';
-  showToast(t('📝 Sample answer loaded!','📝 Mẫu trả lời đã tải!'));
+function toggleSample(i) {
+  const box = document.getElementById('sample-' + i);
+  box.classList.toggle('visible');
+  if (box.classList.contains('visible')) {
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 }
 
-function analyzePractice(i){
-  const textarea = document.getElementById('pAns'+i);
-  const answer = textarea.value.trim();
-  practiceAnswers[i] = answer;
-  if(!answer){
-    showToast(t('Please write an answer first','Hãy viết câu trả lời trước'),'#f59e0b');
+function toggleSampleVN(i) {
+  const vnEl = document.getElementById('sample-vn-' + i);
+  vnEl.classList.toggle('visible');
+}
+
+function speakSample(i) {
+  const q = QUESTIONS[i];
+  if (!q.sample) return;
+  // Strip HTML tags for TTS
+  const tmp = document.createElement('div');
+  tmp.innerHTML = q.sample.en;
+  speakText(tmp.textContent);
+}
+
+function toggleHint(i) {
+  const box = document.getElementById('hint-' + i);
+  box.classList.toggle('visible');
+}
+
+function goToPractice(i) {
+  practiceIdx = Math.min(i, PRACTICE_QUESTIONS.length - 1);
+  showSection('practice', document.querySelectorAll('.nav-tab')[4]);
+  renderPractice();
+}
+
+// ═══════════════════════════════════════════
+// VOCABULARY
+// ═══════════════════════════════════════════
+
+function renderVocabTopics() {
+  const tabsEl = document.getElementById('vocabTopicTabs');
+  tabsEl.innerHTML = '';
+  Object.keys(VOCAB_TOPICS).forEach(topic => {
+    const btn = document.createElement('button');
+    btn.className = 'vocab-tab' + (topic === currentVocabTopic ? ' active' : '');
+    btn.innerHTML = `${VOCAB_TOPICS[topic].icon} ${topic}`;
+    btn.onclick = () => { currentVocabTopic = topic; renderVocab(); };
+    tabsEl.appendChild(btn);
+  });
+}
+
+function renderVocab() {
+  renderVocabTopics();
+  const grid = document.getElementById('vocabGrid');
+  grid.innerHTML = '';
+  const topicData = VOCAB_TOPICS[currentVocabTopic];
+  topicData.words.forEach(w => {
+    const card = document.createElement('div');
+    card.className = 'vocab-card';
+    card.innerHTML = `
+      <div class="flex items-center gap-8">
+        <div>
+          <div class="vocab-word">${w.word}</div>
+          <div class="vocab-phonetic">${w.phonetic}</div>
+        </div>
+        <button class="btn-icon" onclick="speakText('${w.word}')" style="margin-left:auto" title="Listen">🔊</button>
+      </div>
+      <div class="vocab-meaning">${w.meaning}</div>
+      <div class="vocab-vn">🇻🇳 ${w.vn}</div>
+      <div class="vocab-example">"${w.example}"</div>
+    `;
+    grid.appendChild(card);
+  });
+  renderQuiz();
+}
+
+// ── QUIZ ──
+
+let quizAnswers = {};
+let quizType = 'match'; // 'match' | 'fill'
+
+function renderQuiz() {
+  const container = document.getElementById('quizContainer');
+  const allWords = Object.values(VOCAB_TOPICS).flatMap(t => t.words);
+  const shuffled = allWords.sort(() => Math.random() - 0.5).slice(0, 5);
+  quizAnswers = {};
+  container.innerHTML = '';
+
+  // Match quiz (MCQ)
+  const matchTitle = document.createElement('div');
+  matchTitle.className = 'flex items-center gap-8 mb-8';
+  matchTitle.innerHTML = `<span class="badge badge-blue">${lang === 'vn' ? 'Phần 1' : 'Part 1'}</span> <strong>${lang === 'vn' ? 'Chọn nghĩa đúng' : 'Match word → meaning'}</strong>`;
+  container.appendChild(matchTitle);
+
+  shuffled.slice(0, 3).forEach((w, i) => {
+    const others = allWords.filter(x => x.word !== w.word).sort(() => Math.random() - 0.5).slice(0, 3);
+    const options = [w, ...others].sort(() => Math.random() - 0.5);
+    const card = document.createElement('div');
+    card.className = 'quiz-card';
+    card.innerHTML = `
+      <div class="quiz-q">${i + 1}. <strong>${w.word}</strong> — ${lang === 'vn' ? 'nghĩa là gì?' : 'What does it mean?'}</div>
+      <div class="quiz-options">
+        ${options.map(o => `<button class="quiz-opt" data-word="${w.word}" data-correct="${w.meaning}" data-answer="${o.meaning}" onclick="selectOption(this)">${o.meaning}</button>`).join('')}
+      </div>
+    `;
+    container.appendChild(card);
+    quizAnswers['match_' + i] = { word: w.word, correct: w.meaning };
+  });
+
+  // Fill quiz
+  const fillTitle = document.createElement('div');
+  fillTitle.className = 'flex items-center gap-8 mb-8 mt-16';
+  fillTitle.innerHTML = `<span class="badge badge-green">${lang === 'vn' ? 'Phần 2' : 'Part 2'}</span> <strong>${lang === 'vn' ? 'Điền vào chỗ trống' : 'Fill in the blanks'}</strong>`;
+  container.appendChild(fillTitle);
+
+  shuffled.slice(3, 5).forEach((w, i) => {
+    const blanked = w.example.replace(new RegExp(w.word, 'gi'), '_____');
+    const card = document.createElement('div');
+    card.className = 'quiz-card';
+    card.innerHTML = `
+      <div class="quiz-q">${i + 1}. ${lang === 'vn' ? 'Điền từ phù hợp:' : 'Complete the sentence:'}</div>
+      <div class="text-sm mb-8" style="font-style:italic">${blanked}</div>
+      <input type="text" class="fill-input" id="fill_${i}" placeholder="${lang === 'vn' ? 'Nhập câu trả lời...' : 'Type your answer...'}" data-correct="${w.word.toLowerCase()}">
+    `;
+    container.appendChild(card);
+    quizAnswers['fill_' + i] = w.word.toLowerCase();
+  });
+}
+
+function selectOption(el) {
+  const parent = el.parentElement;
+  parent.querySelectorAll('.quiz-opt').forEach(o => o.classList.remove('correct', 'wrong'));
+  el.classList.add(el.dataset.answer === el.dataset.correct ? 'correct' : 'wrong');
+  if (el.dataset.answer === el.dataset.correct) {
+    progress.vocabQuizScore = Math.min(100, progress.vocabQuizScore + 5);
+    saveProgress();
+  }
+}
+
+function checkQuiz() {
+  let correct = 0;
+  let total = 0;
+  Object.keys(quizAnswers).forEach(k => {
+    if (k.startsWith('fill_')) {
+      const idx = k.split('_')[1];
+      const inp = document.getElementById('fill_' + idx);
+      if (inp) {
+        total++;
+        if (inp.value.trim().toLowerCase() === quizAnswers[k]) {
+          inp.classList.add('correct'); inp.classList.remove('wrong'); correct++;
+        } else {
+          inp.classList.add('wrong'); inp.classList.remove('correct');
+        }
+      }
+    }
+  });
+  const pct = total > 0 ? Math.round((correct / total) * 100) : 0;
+  progress.vocabQuizScore = Math.max(progress.vocabQuizScore, pct);
+  saveProgress();
+  const msgs = ['Keep practicing! 💪', 'Good effort! 👍', 'Well done! 🎉', 'Excellent! 🌟'];
+  showToast(lang === 'vn' ? `Đúng ${correct}/${total} câu! Cố lên! 💪` : `${correct}/${total} correct! ${msgs[Math.min(correct, 3)]}`);
+}
+
+function resetQuiz() { renderVocab(); }
+
+// ═══════════════════════════════════════════
+// GRAMMAR
+// ═══════════════════════════════════════════
+
+function renderGrammar() {
+  const tabsEl = document.getElementById('grammarTabs');
+  const panelsEl = document.getElementById('grammarPanels');
+  tabsEl.innerHTML = '';
+  panelsEl.innerHTML = '';
+
+  GRAMMAR_POINTS.forEach((gp, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'grammar-tab' + (i === activeGrammarTab ? ' active' : '');
+    btn.innerHTML = t(gp.label);
+    btn.onclick = () => { activeGrammarTab = i; renderGrammar(); };
+    tabsEl.appendChild(btn);
+
+    const panel = document.createElement('div');
+    panel.className = 'grammar-panel' + (i === activeGrammarTab ? ' active' : '');
+
+    const exHtml = gp.examples.map(ex => `<li>${lang === 'vn' ? ex.vn : ex.en}</li>`).join('');
+
+    let exerciseHtml = '';
+    if (gp.exercise.type === 'error-correct') {
+      exerciseHtml = `
+        <div class="mt-16">
+          <div class="bold mb-8">✏️ ${lang === 'vn' ? 'Sửa lỗi sai:' : 'Correct the errors:'}</div>
+          ${gp.exercise.items.map((item, ei) => `
+            <div class="quiz-card" style="margin-bottom:10px">
+              <div class="quiz-q text-sm" style="color:var(--danger)">❌ ${item.wrong}</div>
+              <input type="text" class="fill-input mt-8" id="gram_${i}_${ei}" placeholder="${lang === 'vn' ? 'Viết câu đúng...' : 'Write the correct sentence...'}" data-correct="${item.correct.toLowerCase()}" data-hint="${item.hint}">
+              <div class="text-xs mt-8" style="display:none" id="gramhint_${i}_${ei}">💡 ${item.hint}</div>
+            </div>
+          `).join('')}
+          <button class="btn btn-accent3 btn-sm mt-8" onclick="checkGrammar(${i})">${lang === 'vn' ? '✅ Kiểm tra' : '✅ Check'}</button>
+        </div>
+      `;
+    } else {
+      exerciseHtml = `
+        <div class="mt-16">
+          <div class="bold mb-8">🧩 ${lang === 'vn' ? 'Sắp xếp từ thành câu:' : 'Arrange words into a sentence:'}</div>
+          ${gp.exercise.items.map((item, ei) => `
+            <div class="quiz-card" style="margin-bottom:10px">
+              <div class="text-sm mb-8">${item.words.map(w => `<span class="tag" style="margin:2px">${w}</span>`).join(' ')}</div>
+              <input type="text" class="fill-input" id="gram_${i}_${ei}" placeholder="${lang === 'vn' ? 'Nhập câu hoàn chỉnh...' : 'Type the full sentence...'}" data-correct="${item.answer.toLowerCase()}">
+            </div>
+          `).join('')}
+          <button class="btn btn-accent3 btn-sm mt-8" onclick="checkGrammar(${i})">${lang === 'vn' ? '✅ Kiểm tra' : '✅ Check'}</button>
+        </div>
+      `;
+    }
+
+    panel.innerHTML = `
+      <div class="grammar-rule">
+        <div class="grammar-formula">${gp.formula}</div>
+        <div class="grammar-explain">${t(gp.explain)}</div>
+      </div>
+      <ul class="grammar-examples">${exHtml}</ul>
+      ${exerciseHtml}
+    `;
+    panelsEl.appendChild(panel);
+  });
+}
+
+function checkGrammar(panelIdx) {
+  const gp = GRAMMAR_POINTS[panelIdx];
+  let correct = 0;
+  gp.exercise.items.forEach((item, ei) => {
+    const inp = document.getElementById(`gram_${panelIdx}_${ei}`);
+    if (!inp) return;
+    if (inp.value.trim().toLowerCase() === inp.dataset.correct) {
+      inp.classList.add('correct'); inp.classList.remove('wrong');
+      correct++;
+    } else {
+      inp.classList.add('wrong'); inp.classList.remove('correct');
+      const hintEl = document.getElementById(`gramhint_${panelIdx}_${ei}`);
+      if (hintEl) hintEl.style.display = 'block';
+    }
+  });
+  progress.grammarScore = Math.min(100, progress.grammarScore + correct * 10);
+  progress.grammarDone = Math.max(progress.grammarDone, panelIdx + 1);
+  saveProgress();
+  showToast(correct === gp.exercise.items.length ? (lang === 'vn' ? '🌟 Tuyệt vời!' : '🌟 Perfect!') : (lang === 'vn' ? '💪 Cố lên!' : '💪 Keep trying!'));
+}
+
+// ═══════════════════════════════════════════
+// PRONUNCIATION
+// ═══════════════════════════════════════════
+
+function renderPronunciation() {
+  const el = document.getElementById('pronunciationContent');
+  el.innerHTML = '';
+
+  // Sentence stress
+  const stressSection = document.createElement('div');
+  stressSection.innerHTML = `<div class="bold mb-8" style="font-size:16px">🔤 ${lang === 'vn' ? 'Trọng Âm Câu' : 'Sentence Stress'}</div>
+    <div class="text-sm mb-16">${lang === 'vn' ? 'Từ in đậm màu cam là từ được nhấn mạnh.' : 'Words highlighted in orange are stressed. Unstressed words are lighter.'}</div>`;
+  PRONUN_DATA.stress[0].sentences.forEach(s => {
+    const div = document.createElement('div');
+    div.className = 'pronun-card';
+    div.innerHTML = `
+      <div class="pronun-sentence">${s.words.map(([w, stressed]) => `<span class="stress-word ${stressed ? 'stressed' : 'unstressed'}">${w} </span>`).join('')}</div>
+      <div class="text-xs mt-8">💡 ${lang === 'vn' ? s.note.vn : s.note.en}</div>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-secondary btn-sm" onclick="speakText('${s.words.map(([w]) => w).join(' ')}')"">🔊 ${lang === 'vn' ? 'Nghe' : 'Listen'}</button>
+        <button class="btn btn-secondary btn-sm" onclick="speakText('${s.words.map(([w]) => w).join(' ')}');showToast('${lang === 'vn' ? '🎤 Nghe rồi lặp lại!' : '🎤 Listen then repeat!'}')"">🔄 ${lang === 'vn' ? 'Nghe & Lặp Lại' : 'Listen & Repeat'}</button>
+      </div>
+    `;
+    stressSection.appendChild(div);
+  });
+  el.appendChild(stressSection);
+
+  // Word stress
+  const wsSection = document.createElement('div');
+  wsSection.style.marginTop = '24px';
+  wsSection.innerHTML = `<div class="bold mb-8" style="font-size:16px">🔠 ${lang === 'vn' ? 'Trọng Âm Từ' : 'Word Stress'}</div>
+    <div class="text-sm mb-16">${lang === 'vn' ? 'Âm tiết màu cam là âm tiết được nhấn.' : 'The orange syllable is the stressed one.'}</div>`;
+  const grid = document.createElement('div');
+  grid.className = 'word-stress-grid';
+  PRONUN_DATA.wordStress.forEach(ws => {
+    const card = document.createElement('div');
+    card.className = 'ws-card';
+    const nounHtml = ws.noun.syllables.map((s, i) => `<span class="${i === ws.noun.stress ? 'stressed-syl' : ''}">${s}</span>`).join('·');
+    const verbHtml = ws.verb.syllables.map((s, i) => `<span class="${i === ws.verb.stress ? 'stressed-syl' : ''}">${s}</span>`).join('·');
+    const word = ws.noun.syllables.join('').toLowerCase();
+    card.innerHTML = `
+      <div class="ws-noun">${nounHtml}</div>
+      <div class="ws-label">${lang === 'vn' ? 'danh từ' : 'noun'}</div>
+      <div style="font-size:12px;color:var(--text3);margin:6px 0">vs</div>
+      <div class="ws-noun">${verbHtml}</div>
+      <div class="ws-label">${lang === 'vn' ? 'động từ' : 'verb'}</div>
+      <div class="text-xs mt-8">${lang === 'vn' ? ws.note.vn : ws.note.en}</div>
+      <button class="btn-icon" style="margin-top:8px" onclick="speakText('${word}')" title="Listen">🔊</button>
+    `;
+    grid.appendChild(card);
+  });
+  wsSection.appendChild(grid);
+  el.appendChild(wsSection);
+
+  // Intonation
+  const intoSection = document.createElement('div');
+  intoSection.style.marginTop = '24px';
+  intoSection.innerHTML = `<div class="bold mb-8" style="font-size:16px">🎵 ${lang === 'vn' ? 'Ngữ Điệu' : 'Intonation'}</div>`;
+  PRONUN_DATA.intonation.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'pronun-card';
+    card.innerHTML = `
+      <div class="flex items-center gap-8">
+        <span style="font-size:24px">${item.arrow}</span>
+        <div>
+          <div class="bold">${t(item.label)}</div>
+          <div class="text-sm italic mt-8">"${item.example}"</div>
+        </div>
+        <button class="btn-icon" style="margin-left:auto" onclick="speakText('${item.example}')">🔊</button>
+      </div>
+    `;
+    intoSection.appendChild(card);
+  });
+  el.appendChild(intoSection);
+
+  // Mark pronunciation done
+  progress.pronunciationDone = true;
+  saveProgress();
+}
+
+// ═══════════════════════════════════════════
+// PRACTICE
+// ═══════════════════════════════════════════
+
+function renderPractice() {
+  const q = PRACTICE_QUESTIONS[practiceIdx];
+  document.getElementById('practiceQuestion').textContent = q.en;
+  document.getElementById('practiceQuestionVN').textContent = q.vn;
+  document.getElementById('practiceCounter').textContent = `${practiceIdx + 1} / ${PRACTICE_QUESTIONS.length}`;
+  const saved = practiceAnswers[practiceIdx] || '';
+  document.getElementById('practiceAnswer').value = saved;
+  document.getElementById('feedbackBox').classList.remove('visible');
+
+  // Populate sample answer from QUESTIONS data (match by English text)
+  const sampleBox = document.getElementById('practiceSampleBox');
+  sampleBox.classList.remove('visible');
+  document.getElementById('practiceSampleVN').classList.remove('visible');
+
+  const matched = QUESTIONS.find(qs => qs.en === q.en || qs.vn === q.vn);
+  if (matched && matched.sample) {
+    document.getElementById('practiceSampleText').innerHTML = matched.sample.en;
+    document.getElementById('practiceSampleVN').textContent = matched.sample.vn;
+    document.getElementById('practiceSampleNoteText').textContent = lang === 'vn' ? matched.sample.note.vn : matched.sample.note.en;
+  } else {
+    document.getElementById('practiceSampleText').innerHTML = `<em style="color:var(--text2)">${lang === 'vn' ? 'Chưa có câu mẫu cho câu này.' : 'No sample answer available for this question.'}</em>`;
+    document.getElementById('practiceSampleVN').textContent = '';
+    document.getElementById('practiceSampleNoteText').textContent = '';
+  }
+}
+
+function togglePracticeSample() {
+  document.getElementById('practiceSampleBox').classList.toggle('visible');
+}
+
+function togglePracticeSampleVN() {
+  document.getElementById('practiceSampleVN').classList.toggle('visible');
+}
+
+function speakPracticeSample() {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = document.getElementById('practiceSampleText').innerHTML;
+  speakText(tmp.textContent);
+}
+
+function prevPracticeQ() {
+  practiceAnswers[practiceIdx] = document.getElementById('practiceAnswer').value;
+  practiceIdx = Math.max(0, practiceIdx - 1);
+  renderPractice();
+}
+
+function nextPracticeQ() {
+  practiceAnswers[practiceIdx] = document.getElementById('practiceAnswer').value;
+  practiceIdx = Math.min(PRACTICE_QUESTIONS.length - 1, practiceIdx + 1);
+  renderPractice();
+}
+
+function listenQuestion() {
+  speakText(PRACTICE_QUESTIONS[practiceIdx].en);
+}
+
+function analyzePractice() {
+  const answer = document.getElementById('practiceAnswer').value.trim();
+  if (answer.length < 20) {
+    showToast(lang === 'vn' ? '✏️ Vui lòng viết thêm để nhận phản hồi!' : '✏️ Please write more to get feedback!');
     return;
   }
+  practiceAnswers[practiceIdx] = answer;
 
-  const words = answer.split(/\s+/).length;
-  const sentences = answer.split(/[.!?]+/).filter(s=>s.trim()).length;
+  // Simple rule-based feedback
+  const wordCount = answer.split(/\s+/).length;
+  const sentences = answer.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+  const hasConnectors = /\b(however|moreover|furthermore|in addition|on the other hand|in my opinion|in my view|personally|because|therefore|as a result|although|despite)\b/i.test(answer);
+  const hasTenses = /\b(has|have|had|will|going to|used to|would)\b/i.test(answer);
+  const hasVocabWords = Object.values(VOCAB_TOPICS).flatMap(t => t.words).filter(w => answer.toLowerCase().includes(w.word.toLowerCase())).length;
 
-  // Simple analysis
-  const discourseMarkers = ['in my opinion','i think','on the other hand','for example','however','moreover','in addition','as a result','therefore','firstly','secondly','in my view','personally'];
-  const usedMarkers = discourseMarkers.filter(m=>answer.toLowerCase().includes(m));
+  const vocabScore = hasVocabWords >= 2 ? 3 : hasVocabWords === 1 ? 2 : 1;
+  const grammarScore = hasTenses ? 3 : 2;
+  const ideaScore = sentences >= 4 ? 3 : sentences >= 2 ? 2 : 1;
+  const connScore = hasConnectors ? 3 : 1;
 
-  const vocabWords = vocabData.flatMap(c=>c.words.map(w=>w.word.toLowerCase()));
-  const usedVocab = vocabWords.filter(v=>answer.toLowerCase().includes(v));
+  const labels = ['', lang === 'vn' ? 'Cần cải thiện' : 'Needs improvement', lang === 'vn' ? 'Khá tốt' : 'Good', lang === 'vn' ? 'Xuất sắc' : 'Excellent'];
+  const colors = ['', 'var(--danger)', 'var(--warn)', 'var(--success)'];
 
-  const grammarPatterns = ['have been','has been','have changed','used to','will be','going to','would be','if i had','because','as a result'];
-  const usedGrammar = grammarPatterns.filter(p=>answer.toLowerCase().includes(p));
+  const suggestions = [];
+  if (!hasConnectors) suggestions.push(lang === 'vn' ? 'Thêm liên từ: "In my opinion", "However", "As a result"' : 'Add discourse markers: "In my opinion", "However", "As a result"');
+  if (sentences < 4) suggestions.push(lang === 'vn' ? 'Mở rộng ý tưởng – hãy cố gắng viết ít nhất 4–5 câu' : 'Expand your ideas – aim for at least 4–5 sentences');
+  if (hasVocabWords === 0) suggestions.push(lang === 'vn' ? 'Dùng từ vựng chủ đề như "consumerism", "sustainable", "convenience"' : 'Use topic vocabulary like "consumerism", "sustainable", "convenience"');
+  if (!hasTenses) suggestions.push(lang === 'vn' ? 'Thử dùng thì khác nhau: hiện tại hoàn thành, tương lai' : 'Try using varied tenses: present perfect, future forms');
 
-  let vocabLevel = words<20?t('⚠️ Basic - try using more vocabulary','⚠️ Cơ bản - thử dùng thêm từ vựng'):
-    usedVocab.length>0?t('✅ Good - you used topic vocabulary!','✅ Tốt - bạn đã dùng từ vựng chủ đề!'):
-    t('💡 Try including words from the Vocabulary section','💡 Thử dùng từ từ phần Từ vựng');
-
-  let grammarLevel = usedGrammar.length>0?t('✅ Good grammar structures detected','✅ Phát hiện cấu trúc ngữ pháp tốt'):
-    t('💡 Try using structures from the Grammar section','💡 Thử dùng cấu trúc từ phần Ngữ pháp');
-
-  let ideaLevel = sentences>=2?t('✅ Good idea development','✅ Phát triển ý tốt'):
-    t('💡 Try to give reasons and examples','💡 Thử đưa ra lý do và ví dụ');
-
-  const fb = document.getElementById('pFeedback'+i);
-  fb.innerHTML = `
-    <div class="p-4 rounded-xl text-sm" style="background:var(--c-secondary)">
-      <p class="font-bold mb-2">${t('📝 Feedback','📝 Phản hồi')}</p>
-      <div class="space-y-2">
-        <p><b>${t('Words','Số từ')}:</b> ${words} ${words<30?t('(Try 40+ words)','(Thử 40+ từ)'):t('(Good length!)','(Độ dài tốt!)')}</p>
-        <p><b>${t('Vocabulary','Từ vựng')}:</b> ${vocabLevel}</p>
-        <p><b>${t('Grammar','Ngữ pháp')}:</b> ${grammarLevel}</p>
-        <p><b>${t('Ideas','Ý tưởng')}:</b> ${ideaLevel}</p>
-        <p><b>${t('Discourse Markers','Từ nối')}:</b> ${usedMarkers.length>0?'✅ '+usedMarkers.join(', '):t('💡 Try: "In my opinion", "For example", "On the other hand"','💡 Thử: "In my opinion", "For example", "On the other hand"')}</p>
-      </div>
-      ${words>=20?`<p class="mt-3 font-bold" style="color:var(--c-primary)">${t('🌟 Keep going! You are improving!','🌟 Tiếp tục! Bạn đang tiến bộ!')}</p>`:''}
+  const feedbackHtml = `
+    <div class="feedback-row">
+      <span class="feedback-label">${lang === 'vn' ? '📚 Từ Vựng' : '📚 Vocabulary'}</span>
+      <span class="feedback-score"><div class="score-dots">${[1,2,3].map(n=>`<div class="score-dot ${n<=vocabScore?'filled':''}"></div>`).join('')}</div><span style="font-size:12px;color:${colors[vocabScore]};font-weight:700">${labels[vocabScore]}</span></span>
     </div>
+    <div class="feedback-row">
+      <span class="feedback-label">${lang === 'vn' ? '✍️ Ngữ Pháp' : '✍️ Grammar'}</span>
+      <span class="feedback-score"><div class="score-dots">${[1,2,3].map(n=>`<div class="score-dot ${n<=grammarScore?'filled':''}"></div>`).join('')}</div><span style="font-size:12px;color:${colors[grammarScore]};font-weight:700">${labels[grammarScore]}</span></span>
+    </div>
+    <div class="feedback-row">
+      <span class="feedback-label">${lang === 'vn' ? '💡 Phát Triển Ý' : '💡 Idea Development'}</span>
+      <span class="feedback-score"><div class="score-dots">${[1,2,3].map(n=>`<div class="score-dot ${n<=ideaScore?'filled':''}"></div>`).join('')}</div><span style="font-size:12px;color:${colors[ideaScore]};font-weight:700">${labels[ideaScore]}</span></span>
+    </div>
+    <div class="feedback-row">
+      <span class="feedback-label">${lang === 'vn' ? '🔗 Liên Từ' : '🔗 Connectors'}</span>
+      <span class="feedback-score"><div class="score-dots">${[1,2,3].map(n=>`<div class="score-dot ${n<=connScore?'filled':''}"></div>`).join('')}</div><span style="font-size:12px;color:${colors[connScore]};font-weight:700">${labels[connScore]}</span></span>
+    </div>
+    ${suggestions.length > 0 ? `
+      <div class="suggestion-box">
+        <div class="suggestion-title">💡 ${lang === 'vn' ? 'Gợi ý cải thiện:' : 'Suggestions to improve:'}</div>
+        <ul style="padding-left:16px">${suggestions.map(s => `<li style="font-size:13px;color:var(--text);margin-bottom:4px">${s}</li>`).join('')}</ul>
+      </div>
+    ` : `<div class="suggestion-box" style="background:var(--success-light);border-color:var(--success)"><div style="color:var(--success);font-weight:700">🌟 ${lang === 'vn' ? 'Rất tốt! Tiếp tục phát huy!' : 'Great work! Keep it up!'}</div></div>`}
+    <div class="text-xs mt-8" style="color:var(--text3)">${lang === 'vn' ? `Số từ: ${wordCount} • Số câu: ${sentences}` : `Words: ${wordCount} • Sentences: ${sentences}`}</div>
   `;
 
-  localScores.practice_count++;
+  document.getElementById('feedbackContent').innerHTML = feedbackHtml;
+  document.getElementById('feedbackBox').classList.add('visible');
+
+  progress.practiceCount = Math.max(progress.practiceCount, Object.keys(practiceAnswers).length);
   saveProgress();
+
+  const motivational = lang === 'vn'
+    ? ['Cố lên! 💪', 'Rất tốt! 🎉', 'Tuyệt vời! 🌟', 'Xuất sắc! 🏆']
+    : ['Keep going! 💪', 'Well done! 🎉', 'Great effort! 🌟', 'Excellent! 🏆'];
+  const avg = (vocabScore + grammarScore + ideaScore + connScore) / 4;
+  showToast(motivational[Math.min(Math.floor(avg) - 1, 3)]);
 }
 
-// === PROGRESS ===
-function renderProgress(){
-  const s = localScores;
-  const sec = document.getElementById('sec5');
+// ═══════════════════════════════════════════
+// PROGRESS
+// ═══════════════════════════════════════════
 
+function renderProgress() {
+  const grid = document.getElementById('progressGrid');
+  grid.innerHTML = '';
+
+  const stats = [
+    { icon: '📚', value: progress.vocabQuizScore + '%', label: lang === 'vn' ? 'Điểm Từ Vựng' : 'Vocab Score', pct: progress.vocabQuizScore, color: 'var(--accent)' },
+    { icon: '✍️', value: progress.grammarScore + '%', label: lang === 'vn' ? 'Điểm Ngữ Pháp' : 'Grammar Score', pct: progress.grammarScore, color: 'var(--accent3)' },
+    { icon: '🗣️', value: progress.pronunciationDone ? '✅' : '⏳', label: lang === 'vn' ? 'Phát Âm' : 'Pronunciation', pct: progress.pronunciationDone ? 100 : 0, color: 'var(--accent2)' },
+    { icon: '🎤', value: progress.practiceCount, label: lang === 'vn' ? 'Lần Luyện Tập' : 'Practice Attempts', pct: Math.min(100, progress.practiceCount * 20), color: 'var(--accent4)' }
+  ];
+
+  stats.forEach(s => {
+    const el = document.createElement('div');
+    el.className = 'progress-stat';
+    el.innerHTML = `
+      <div class="stat-icon">${s.icon}</div>
+      <div class="stat-value" style="color:${s.color}">${s.value}</div>
+      <div class="stat-label">${s.label}</div>
+      <div class="stat-bar progress-bar mt-8"><div class="progress-fill" style="width:${s.pct}%;background:${s.color}"></div></div>
+    `;
+    grid.appendChild(el);
+  });
+
+  // Report
+  const total = (progress.vocabQuizScore + progress.grammarScore) / 2;
   const strengths = [];
   const weaknesses = [];
-  if(s.vocab_score>=50) strengths.push(t('Vocabulary','Từ vựng')); else weaknesses.push(t('Vocabulary','Từ vựng'));
-  if(s.grammar_score>=30) strengths.push(t('Grammar','Ngữ pháp')); else weaknesses.push(t('Grammar','Ngữ pháp'));
-  if(s.pronunciation_done>=50) strengths.push(t('Pronunciation','Phát âm')); else weaknesses.push(t('Pronunciation','Phát âm'));
-  if(s.practice_count>=2) strengths.push(t('Speaking Practice','Luyện nói')); else weaknesses.push(t('Speaking Practice','Luyện nói'));
+  const focus = [];
 
-  sec.innerHTML = `
-    <h2 class="font-display text-2xl font-bold mb-1">${t('📊 Your Progress','📊 Tiến độ của bạn')}</h2>
-    <p class="text-sm opacity-60 mb-4">${t('Track your learning journey','Theo dõi hành trình học tập')}</p>
+  if (progress.vocabQuizScore >= 70) strengths.push(lang === 'vn' ? 'Từ vựng tốt' : 'Good vocabulary range');
+  else weaknesses.push(lang === 'vn' ? 'Cần học thêm từ vựng' : 'Needs more vocabulary work');
 
-    <div class="card">
-      <p class="font-semibold mb-2">${t('Vocabulary Quiz','Quiz Từ vựng')}</p>
-      <div class="progress-bar"><div class="progress-fill" style="width:${s.vocab_score}%;background:var(--c-primary)"></div></div>
-      <p class="text-xs mt-1 opacity-60">${s.vocab_score}%</p>
-    </div>
-    <div class="card">
-      <p class="font-semibold mb-2">${t('Grammar Exercises','Bài tập Ngữ pháp')}</p>
-      <div class="progress-bar"><div class="progress-fill" style="width:${s.grammar_score}%;background:#22c55e"></div></div>
-      <p class="text-xs mt-1 opacity-60">${s.grammar_score}%</p>
-    </div>
-    <div class="card">
-      <p class="font-semibold mb-2">${t('Pronunciation Practice','Luyện Phát âm')}</p>
-      <div class="progress-bar"><div class="progress-fill" style="width:${s.pronunciation_done}%;background:#f59e0b"></div></div>
-      <p class="text-xs mt-1 opacity-60">${s.pronunciation_done}%</p>
-    </div>
-    <div class="card">
-      <p class="font-semibold mb-2">${t('Practice Attempts','Số lần Luyện tập')}</p>
-      <p class="text-3xl font-bold" style="color:var(--c-primary)">${s.practice_count}</p>
-    </div>
+  if (progress.grammarScore >= 70) strengths.push(lang === 'vn' ? 'Ngữ pháp ổn định' : 'Solid grammar structures');
+  else { weaknesses.push(lang === 'vn' ? 'Cần luyện cấu trúc ngữ pháp' : 'Grammar structures need practice'); focus.push(lang === 'vn' ? 'Xem lại phần Ngữ Pháp' : 'Review the Grammar section'); }
 
-    <div class="card mt-4" style="border:2px solid var(--c-primary)">
-      <h3 class="font-display text-lg font-bold mb-3">${t('📋 Final Report','📋 Báo cáo cuối')}</h3>
-      <div class="space-y-2 text-sm">
-        <div>
-          <p class="font-bold" style="color:#22c55e">${t('💪 Strengths:','💪 Điểm mạnh:')}</p>
-          <p>${strengths.length?strengths.join(', '):t('Keep practicing to build strengths!','Tiếp tục luyện tập để xây dựng điểm mạnh!')}</p>
-        </div>
-        <div>
-          <p class="font-bold" style="color:#ef4444">${t('🔧 Needs Improvement:','🔧 Cần cải thiện:')}</p>
-          <p>${weaknesses.length?weaknesses.join(', '):t('Excellent work across all areas!','Tuyệt vời ở tất cả các lĩnh vực!')}</p>
-        </div>
-        <div>
-          <p class="font-bold" style="color:var(--c-primary)">${t('📌 Suggested Focus:','📌 Đề xuất tập trung:')}</p>
-          <p>${weaknesses.length?t('Spend more time on: ','Dành thêm thời gian cho: ')+weaknesses[0]:t('Review all sections regularly','Ôn tập tất cả các phần thường xuyên')}</p>
-        </div>
-      </div>
-    </div>
+  if (progress.pronunciationDone) strengths.push(lang === 'vn' ? 'Đã luyện phát âm' : 'Pronunciation practice done');
+  else { weaknesses.push(lang === 'vn' ? 'Chưa luyện phát âm' : 'Pronunciation not practiced'); focus.push(lang === 'vn' ? 'Học phần Phát Âm' : 'Visit the Pronunciation section'); }
 
-    <div class="mt-4 text-center">
-      <p class="text-sm opacity-60 mb-2">${t('📸 Take a screenshot of this page to send to your teacher','📸 Chụp màn hình trang này để gửi giáo viên')}</p>
-      <div class="card text-center p-6" style="border:2px dashed var(--c-primary)">
-        <p class="font-display text-lg font-bold">${t('IELTS Speaking Progress Report','Báo cáo Tiến độ IELTS Speaking')}</p>
-        <p class="text-sm opacity-60 mt-1">${new Date().toLocaleDateString()}</p>
-        <div class="grid grid-cols-2 gap-3 mt-4 text-sm">
-          <div class="p-2 rounded-xl" style="background:var(--c-secondary)"><b>${t('Vocab','Từ vựng')}</b><br>${s.vocab_score}%</div>
-          <div class="p-2 rounded-xl" style="background:var(--c-secondary)"><b>${t('Grammar','Ngữ pháp')}</b><br>${s.grammar_score}%</div>
-          <div class="p-2 rounded-xl" style="background:var(--c-secondary)"><b>${t('Pronun.','Phát âm')}</b><br>${s.pronunciation_done}%</div>
-          <div class="p-2 rounded-xl" style="background:var(--c-secondary)"><b>${t('Practice','Luyện tập')}</b><br>${s.practice_count}x</div>
-        </div>
-        <p class="mt-3 text-xs opacity-50">${t('Generated by IELTS Speaking Self-Study App','Tạo bởi Ứng dụng Tự học IELTS Speaking')}</p>
-      </div>
+  if (progress.practiceCount >= 3) strengths.push(lang === 'vn' ? 'Siêng năng luyện tập' : 'Consistent practice effort');
+  else focus.push(lang === 'vn' ? 'Luyện nói thêm ở phần Practice' : 'Practice more answers in the Practice section');
+
+  if (strengths.length === 0) strengths.push(lang === 'vn' ? 'Bạn vừa bắt đầu – tiếp tục cố gắng!' : 'Just getting started – keep going!');
+  if (focus.length === 0) focus.push(lang === 'vn' ? 'Hãy thử các phần mới!' : 'Try all sections to keep growing!');
+
+  document.getElementById('reportGrid').innerHTML = `
+    <div class="report-section">
+      <div class="report-section-title green">💪 ${lang === 'vn' ? 'Điểm Mạnh' : 'Strengths'}</div>
+      <ul>${strengths.map(s => `<li>${s}</li>`).join('')}</ul>
+    </div>
+    <div class="report-section">
+      <div class="report-section-title orange">⚠️ ${lang === 'vn' ? 'Điểm Yếu' : 'Weaknesses'}</div>
+      <ul>${weaknesses.map(s => `<li>${s}</li>`).join('')}</ul>
+    </div>
+    <div class="report-section">
+      <div class="report-section-title blue">🎯 ${lang === 'vn' ? 'Nên Tập Trung' : 'Suggested Focus'}</div>
+      <ul>${focus.map(s => `<li>${s}</li>`).join('')}</ul>
     </div>
   `;
+
+  document.querySelector('.report-title').innerHTML = `📋 <span>${lang === 'vn' ? 'Báo Cáo Học Tập' : 'Your Study Report'}</span> <span class="badge badge-${total >= 70 ? 'green' : 'orange'}" style="font-size:14px">${total >= 70 ? (lang === 'vn' ? 'Đang tiến bộ tốt! 🌟' : 'Making great progress! 🌟') : (lang === 'vn' ? 'Cần cố gắng thêm 💪' : 'Keep pushing! 💪')}</span>`;
 }
 
-// ===== INIT =====
-applyColors(defaultConfig);
-applyFonts(defaultConfig);
-renderQuestions();
-lucide.createIcons();
+// ═══════════════════════════════════════════
+// UTILITIES
+// ═══════════════════════════════════════════
+
+function speakText(text) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang = 'en-US';
+  utt.rate = 0.85;
+  utt.pitch = 1.0;
+  window.speechSynthesis.speak(utt);
+}
+
+let toastTimer;
+function showToast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+function takeScreenshot() {
+  showToast(lang === 'vn' ? '📸 Dùng Ctrl+Shift+S (Windows) hoặc Cmd+Shift+4 (Mac) để chụp!' : '📸 Press Ctrl+Shift+S (Win) or Cmd+Shift+4 (Mac) to screenshot!');
+  // Scroll to report
+  document.getElementById('reportBox').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+
+function init() {
+  renderQuestions();
+  renderVocab();
+  renderGrammar();
+  renderPronunciation();
+  renderPractice();
+}
+
+init();
+
+// Welcome toast
+setTimeout(() => {
+  showToast(lang === 'vn' ? '👋 Chào mừng! Hãy bắt đầu luyện tập!' : '👋 Welcome! Let\'s start practicing!');
+}, 800);
 </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ebf4eb2e1fbb7d5',t:'MTc3NjEzNDAyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
